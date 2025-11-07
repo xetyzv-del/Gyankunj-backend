@@ -101,7 +101,6 @@ try {
 // POST route (uploads to Cloudinary, then updates Firestore)
 app.post('/api/upload', upload.single('pdfFile'), (req, res) => {
   if (!db) return res.status(500).json({ error: "Database not initialized." });
-  
   const topic = req.body.topic;
   const file = req.file;
 
@@ -141,7 +140,7 @@ const pdfUrl = result.secure_url.replace(/^http:\/\//i, 'https://');
       console.error("Firestore update error:", dbError);
       return res.status(500).json({ message: "Database update failed" });
     }
-  }).end(file.buffer); // Send the file buffer to Cloudinary
+  '}).end(file.buffer); // Send the file buffer to Cloudinary
 });
 
 // --- 4. CATCH-ALL & START SERVER ---
@@ -156,8 +155,5 @@ app.listen(PORT, () => {
   console.log(`Gyankunj Backend running at http://localhost:${PORT}`);
 });
 
-0
-0
-0
-0
+
 0
