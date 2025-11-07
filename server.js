@@ -100,7 +100,7 @@ app.post('/api/upload', upload.single('pdfFile'), (req, res) => {
   // Upload the file buffer from memory to Cloudinary
   cloudinary.uploader.upload_stream({
     resource_type: 'raw', // Treat it as a raw file, not an image
-    public_id: `${topic}-${Date.now()}`
+    public_id: `${topic}-${Date.now()}`,
      format: 'pdf' 
   }, async (error, result) => {
     if (error) {
@@ -143,5 +143,6 @@ app.listen(PORT, () => {
   console.log(`Gyankunj Backend running at http://localhost:${PORT}`);
 });
 
+0
 0
 0
