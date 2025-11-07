@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Gyankunj</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #f4f4f9; }
+        .upload-form { background: white; padding: 20px; border-radius: 8px; max-width: 500px; margin: 0 auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select, textarea { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+        button { background: #219ebc; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; width: 100%; }
+        button:hover { background: #126d85; }
+        #status { margin-top: 20px; text-align: center; }
+        .success { color: green; } .error { color: red; }
+    </style>
+</head>
+<body>
+    <div class="upload-form">
+        <h2>Upload New Material</h2>
+        <form id="uploadForm">
+            <div class="form-group">
+                <label>Title of Material:</label>
+                <input type="text" id="title" required placeholder="e.g., Mauryan Empire Notes">
+            </div>
+            <div class="form-group">
+                <label>Section:</label>
+                <select id="section" required>
+                    <option value="study-material">Study Material (Notes)</option>
+                    <option value="test-series">Test Series (PDF Tests)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                 <label>Topic ID (Must match your HTML data-topic attributes):</label>
+                 <select id="topic_id" required>
+                    <option value="">-- Select Topic --</option>
+                    <optgroup label="GS1 History">
+                        <option value="ancient-history">Ancient History</option>
+                        <option value="medieval-history">Medieval History</option>
+                        <option value="modern-history">Modern History</option>
+                    </optgroup>
+                    <optgroup label="GS2 Polity">
+                        <option value="constitution">Constitution</option>
+                        <option value="political-system">Political System</option>
+                    </optgroup>
+                    </select>
+            </div>
+            <div class="form-group">
+                <label>Short Description (Optional):</label>
+                <textarea id="description" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label>PDF File:</label>
+                <input type="file" id="pdfFile" accept="application/pdf" required>
+            </div>
+            <button type="submit">Upload PDF</button>
+        </form>
+        <div id="status"></div>
+    </div>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const statusDiv = document.getElementById('status');
+            statusDiv.textContent = 'Uploading...';
+            statusDiv.className = '';
+
+            const formData = new FormData();
+            formData.append('title', document.getElementById('title').value);
+            formData.append('section', document.getElementById('section').value);
+            formData.append('topic_id', document.getElementById('topic_id').value);
+            formData.append('description', document.getElementById('description').value);
+            formData.append('pdfFile', document.getElementById('pdfFile').files[0]);
+
+            try {
+                const response = await fetch('/api/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+                const result = await response.json();
+                if (result.success) {
+                    statusDiv.textContent = '✅ Upload Successful!';
+                    statusDiv.className = 'success';
+                    document.getElementById('uploadForm').reset();
+                } else {
+                    throw new Error(result.error || 'Upload failed');
+                }
+            } catch (error) {
+                statusDiv.textContent = '❌ Error: ' + error.message;
+                statusDiv.className = 'error';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,3552 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gyankunj Academy - Complete MP Civil Services Exam Preparation Platform">
+    <meta name="keywords" content="MPPSC, Civil Services, Exam Preparation, MCQ, Study Material">
+    <title>Gyankunj Academy - MP Civil Services Exam Preparation</title>
+    
+    <style>
+        :root {
+  /* Primitive Color Tokens */
+  --color-white: rgba(255, 255, 255, 1);
+  --color-black: rgba(0, 0, 0, 1);
+  --color-cream-50: rgba(252, 252, 249, 1);
+  --color-cream-100: rgba(255, 255, 253, 1);
+  --color-gray-200: rgba(245, 245, 245, 1);
+  --color-gray-300: rgba(167, 169, 169, 1);
+  --color-gray-400: rgba(119, 124, 124, 1);
+  --color-slate-500: rgba(98, 108, 113, 1);
+  --color-brown-600: rgba(94, 82, 64, 1);
+  --color-charcoal-700: rgba(31, 33, 33, 1);
+  --color-charcoal-800: rgba(38, 40, 40, 1);
+  --color-slate-900: rgba(19, 52, 59, 1);
+  --color-teal-300: rgba(50, 184, 198, 1);
+  --color-teal-400: rgba(45, 166, 178, 1);
+  --color-teal-500: rgba(33, 128, 141, 1);
+  --color-teal-600: rgba(29, 116, 128, 1);
+  --color-teal-700: rgba(26, 104, 115, 1);
+  --color-teal-800: rgba(41, 150, 161, 1);
+  --color-red-400: rgba(255, 84, 89, 1);
+  --color-red-500: rgba(192, 21, 47, 1);
+  --color-orange-400: rgba(230, 129, 97, 1);
+  --color-orange-500: rgba(168, 75, 47, 1);
+
+  /* RGB versions for opacity control */
+  --color-brown-600-rgb: 94, 82, 64;
+  --color-teal-500-rgb: 33, 128, 141;
+  --color-slate-900-rgb: 19, 52, 59;
+  --color-slate-500-rgb: 98, 108, 113;
+  --color-red-500-rgb: 192, 21, 47;
+  --color-red-400-rgb: 255, 84, 89;
+  --color-orange-500-rgb: 168, 75, 47;
+  --color-orange-400-rgb: 230, 129, 97;
+
+  /* Background color tokens (Light Mode) */
+  --color-bg-1: rgba(59, 130, 246, 0.08); /* Light blue */
+  --color-bg-2: rgba(245, 158, 11, 0.08); /* Light yellow */
+  --color-bg-3: rgba(34, 197, 94, 0.08); /* Light green */
+  --color-bg-4: rgba(239, 68, 68, 0.08); /* Light red */
+  --color-bg-5: rgba(147, 51, 234, 0.08); /* Light purple */
+  --color-bg-6: rgba(249, 115, 22, 0.08); /* Light orange */
+  --color-bg-7: rgba(236, 72, 153, 0.08); /* Light pink */
+  --color-bg-8: rgba(6, 182, 212, 0.08); /* Light cyan */
+
+  /* Semantic Color Tokens (Light Mode) */
+  --color-background: var(--color-cream-50);
+  --color-surface: var(--color-cream-100);
+  --color-text: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-500);
+  --color-primary: var(--color-teal-500);
+  --color-primary-hover: var(--color-teal-600);
+  --color-primary-active: var(--color-teal-700);
+  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-btn-primary-text: var(--color-cream-50);
+  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-error: var(--color-red-500);
+  --color-success: var(--color-teal-500);
+  --color-warning: var(--color-orange-500);
+  --color-info: var(--color-slate-500);
+  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+  --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+
+  /* Common style patterns */
+  --focus-ring: 0 0 0 3px var(--color-focus-ring);
+  --focus-outline: 2px solid var(--color-primary);
+  --status-bg-opacity: 0.15;
+  --status-border-opacity: 0.25;
+  --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+
+  /* RGB versions for opacity control */
+  --color-success-rgb: 33, 128, 141;
+  --color-error-rgb: 192, 21, 47;
+  --color-warning-rgb: 168, 75, 47;
+  --color-info-rgb: 98, 108, 113;
+
+  /* Typography */
+  --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo,
+    Monaco, Consolas, monospace;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 20px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 30px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 550;
+  --font-weight-bold: 600;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --letter-spacing-tight: -0.01em;
+
+  /* Spacing */
+  --space-0: 0;
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-base: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04),
+    0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04),
+    0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+
+  /* Animation */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+}
+
+/* Dark mode colors - uses data-theme instead of prefers-color-scheme for control */
+[data-theme="dark"] {
+  /* RGB versions for opacity control (Dark Mode) */
+  --color-gray-400-rgb: 119, 124, 124;
+  --color-teal-300-rgb: 50, 184, 198;
+  --color-gray-300-rgb: 167, 169, 169;
+  --color-gray-200-rgb: 245, 245, 245;
+
+  /* Background color tokens (Dark Mode) */
+  --color-bg-1: rgba(29, 78, 216, 0.15); /* Dark blue */
+  --color-bg-2: rgba(180, 83, 9, 0.15); /* Dark yellow */
+  --color-bg-3: rgba(21, 128, 61, 0.15); /* Dark green */
+  --color-bg-4: rgba(185, 28, 28, 0.15); /* Dark red */
+  --color-bg-5: rgba(107, 33, 168, 0.15); /* Dark purple */
+  --color-bg-6: rgba(194, 65, 12, 0.15); /* Dark orange */
+  --color-bg-7: rgba(190, 24, 93, 0.15); /* Dark pink */
+  --color-bg-8: rgba(8, 145, 178, 0.15); /* Dark cyan */
+
+  /* Semantic Color Tokens (Dark Mode) */
+  --color-background: var(--color-charcoal-700);
+  --color-surface: var(--color-charcoal-800);
+  --color-text: var(--color-gray-200);
+  --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+  --color-primary: var(--color-teal-300);
+  --color-primary-hover: var(--color-teal-400);
+  --color-primary-active: var(--color-teal-800);
+  --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+  --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+  --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+  --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+  --color-error: var(--color-red-400);
+  --color-success: var(--color-teal-300);
+  --color-warning: var(--color-orange-400);
+  --color-info: var(--color-gray-300);
+  --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+  --color-btn-primary-text: var(--color-slate-900);
+  --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+  --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  --button-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
+  --color-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
+  --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
+
+  /* RGB versions for dark mode */
+  --color-success-rgb: var(--color-teal-300-rgb);
+  --color-error-rgb: var(--color-red-400-rgb);
+  --color-warning-rgb: var(--color-orange-400-rgb);
+  --color-info-rgb: var(--color-gray-300-rgb);
+}
+
+/* Base styles */
+html {
+  font-size: var(--font-size-base);
+  font-family: var(--font-family-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  min-height: 100vh;
+  transition: background-color var(--duration-normal) var(--ease-standard);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+}
+h2 {
+  font-size: var(--font-size-3xl);
+}
+h3 {
+  font-size: var(--font-size-2xl);
+}
+h4 {
+  font-size: var(--font-size-xl);
+}
+h5 {
+  font-size: var(--font-size-lg);
+}
+h6 {
+  font-size: var(--font-size-md);
+}
+
+p {
+  margin: 0 0 var(--space-16) 0;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+code,
+pre {
+  font-family: var(--font-family-mono);
+  font-size: calc(var(--font-size-base) * 0.95);
+  background-color: var(--color-secondary);
+  border-radius: var(--radius-sm);
+}
+
+code {
+  padding: var(--space-1) var(--space-4);
+}
+
+pre {
+  padding: var(--space-16);
+  margin: var(--space-16) 0;
+  overflow: auto;
+  border: 1px solid var(--color-border);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-standard);
+  border: none;
+  text-decoration: none;
+  position: relative;
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
+}
+
+.btn--primary:hover {
+  background: var(--color-primary-hover);
+}
+
+.btn--primary:active {
+  background: var(--color-primary-active);
+}
+
+.btn--secondary {
+  background: var(--color-secondary);
+  color: var(--color-text);
+}
+
+.btn--secondary:hover {
+  background: var(--color-secondary-hover);
+}
+
+.btn--secondary:active {
+  background: var(--color-secondary-active);
+}
+
+.btn--outline {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.btn--outline:hover {
+  background: var(--color-secondary);
+}
+
+.btn--sm {
+  padding: var(--space-4) var(--space-12);
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-sm);
+}
+
+.btn--lg {
+  padding: var(--space-10) var(--space-20);
+  font-size: var(--font-size-lg);
+  border-radius: var(--radius-md);
+}
+
+.btn--full-width {
+  width: 100%;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Form elements */
+.form-control {
+  display: block;
+  width: 100%;
+  padding: var(--space-8) var(--space-12);
+  font-size: var(--font-size-md);
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+  transition: border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+textarea.form-control {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+}
+
+select.form-control {
+  padding: var(--space-8) var(--space-12);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: var(--select-caret-light);
+  background-repeat: no-repeat;
+  background-position: right var(--space-12) center;
+  background-size: 16px;
+  padding-right: var(--space-32);
+}
+
+[data-theme="dark"] select.form-control {
+  background-image: var(--select-caret-dark);
+}
+
+.form-control:focus {
+  border-color: var(--color-primary);
+  outline: var(--focus-outline);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--space-8);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+}
+
+.form-group {
+  margin-bottom: var(--space-16);
+}
+
+/* Card component */
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-card-border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: box-shadow var(--duration-normal) var(--ease-standard);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.card__body {
+  padding: var(--space-16);
+}
+
+.card__header,
+.card__footer {
+  padding: var(--space-16);
+  border-bottom: 1px solid var(--color-card-border-inner);
+}
+
+/* Status indicators - simplified with CSS variables */
+.status {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-6) var(--space-12);
+  border-radius: var(--radius-full);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+}
+
+.status--success {
+  background-color: rgba(
+    var(--color-success-rgb, 33, 128, 141),
+    var(--status-bg-opacity)
+  );
+  color: var(--color-success);
+  border: 1px solid
+    rgba(var(--color-success-rgb, 33, 128, 141), var(--status-border-opacity));
+}
+
+.status--error {
+  background-color: rgba(
+    var(--color-error-rgb, 192, 21, 47),
+    var(--status-bg-opacity)
+  );
+  color: var(--color-error);
+  border: 1px solid
+    rgba(var(--color-error-rgb, 192, 21, 47), var(--status-border-opacity));
+}
+
+.status--warning {
+  background-color: rgba(
+    var(--color-warning-rgb, 168, 75, 47),
+    var(--status-bg-opacity)
+  );
+  color: var(--color-warning);
+  border: 1px solid
+    rgba(var(--color-warning-rgb, 168, 75, 47), var(--status-border-opacity));
+}
+
+.status--info {
+  background-color: rgba(
+    var(--color-info-rgb, 98, 108, 113),
+    var(--status-bg-opacity)
+  );
+  color: var(--color-info);
+  border: 1px solid
+    rgba(var(--color-info-rgb, 98, 108, 113), var(--status-border-opacity));
+}
+
+/* Container layout */
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--space-16);
+  padding-left: var(--space-16);
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: var(--container-sm);
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: var(--container-md);
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    max-width: var(--container-lg);
+  }
+}
+
+/* --- APP LAYOUT SPECIFIC STYLES --- */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-20);
+}
+
+.header-content {
+  width: 100%;
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+  font-size: var(--font-size-xl);
+  color: var(--color-primary);
+  margin-left: var(--space-16);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.user-profile {
+  margin-left: var(--space-16);
+  padding: var(--space-8) var(--space-12);
+  border-radius: var(--radius-full);
+  background-color: var(--color-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 250px;
+  height: calc(100vh - 60px);
+  background-color: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  padding-top: var(--space-20);
+  transition: transform var(--duration-normal) var(--ease-standard);
+  z-index: 999;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li a {
+  display: block;
+  padding: var(--space-12) var(--space-20);
+  color: var(--color-text);
+  font-size: var(--font-size-lg);
+  transition: background-color var(--duration-fast), color var(--duration-fast);
+}
+
+.sidebar-nav li a:hover {
+  background-color: var(--color-secondary-hover);
+}
+
+.sidebar-nav li a.active {
+  background-color: var(--color-primary);
+  color: var(--color-btn-primary-text);
+  font-weight: var(--font-weight-medium);
+}
+
+.sidebar-nav li a.active:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* Main Content */
+.main-content {
+  flex-grow: 1;
+  padding: 80px var(--space-20) var(--space-20) 270px; /* Base padding with sidebar */
+  transition: padding-left var(--duration-normal) var(--ease-standard);
+}
+
+.content-section {
+  display: none;
+}
+
+.content-section.active {
+  display: block;
+}
+
+/* Mobile adjustments */
+@media (max-width: 1024px) {
+  .sidebar {
+    transform: translateX(-250px);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    padding-left: var(--space-20);
+  }
+
+  .menu-toggle {
+    display: block !important;
+  }
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-8);
+    position: relative;
+    z-index: 1001;
+}
+.menu-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    margin: 4px 0;
+    background: var(--color-text);
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- Dashboard Styles --- */
+.stats-grid, .action-grid, .charts-grid, .test-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-20);
+    margin-bottom: var(--space-32);
+}
+
+.stat-card {
+    display: flex;
+    align-items: center;
+    padding: var(--space-16);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xs);
+    border: 1px solid rgba(var(--color-brown-600-rgb), 0.1);
+}
+
+.stat-icon {
+    font-size: var(--font-size-3xl);
+    margin-right: var(--space-16);
+}
+
+.stat-value {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+}
+
+.stat-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.quick-actions, .recent-activity, .progress-stats, .weak-areas {
+    margin-bottom: var(--space-32);
+}
+
+.action-card {
+    background-color: var(--color-surface);
+    padding: var(--space-20);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-card-border);
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-standard);
+    box-shadow: var(--shadow-sm);
+}
+
+.action-card:hover {
+    background-color: var(--color-secondary);
+    box-shadow: var(--shadow-md);
+}
+
+.action-icon {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--space-8);
+}
+
+.action-title {
+    font-weight: var(--font-weight-semibold);
+}
+
+.activity-list, .upcoming-sessions, .daily-targets {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+}
+
+.activity-item {
+    background-color: var(--color-surface);
+    padding: var(--space-12);
+    border-radius: var(--radius-base);
+    border: 1px solid var(--color-card-border-inner);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-md);
+}
+
+.activity-item span {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.activity-item strong {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
+}
+
+/* --- Study Material Styles --- */
+.material-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-20);
+    margin-bottom: var(--space-32);
+}
+
+.material-card {
+    background-color: var(--color-surface);
+    padding: var(--space-20);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-card-border);
+    box-shadow: var(--shadow-sm);
+}
+
+.material-card h3 {
+    margin-bottom: var(--space-16);
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: var(--space-8);
+}
+
+.topic-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.topic-list li {
+    margin-bottom: var(--space-8);
+}
+
+.topic-link {
+    display: block;
+    padding: var(--space-4) 0;
+    font-size: var(--font-size-md);
+}
+
+.topic-content {
+    margin-top: var(--space-20);
+    padding: var(--space-20);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-card-border);
+}
+
+/* --- Quiz/MCQ Styles --- */
+.quiz-start, .quiz-active, .quiz-results {
+    max-width: 600px;
+    margin: var(--space-32) auto;
+    padding: var(--space-32);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-card-border);
+    box-shadow: var(--shadow-md);
+}
+
+.quiz-options {
+    margin: var(--space-24) 0;
+}
+
+.quiz-options .form-group {
+    margin-bottom: var(--space-16);
+}
+
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-20);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-12);
+}
+
+.quiz-progress {
+    flex-grow: 1;
+    margin-right: var(--space-20);
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: var(--color-secondary);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-4);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease;
+}
+
+.question-counter {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.quiz-timer {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-error);
+}
+
+.question-container h3 {
+    margin-bottom: var(--space-20);
+    font-size: var(--font-size-xl);
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+    margin-bottom: var(--space-24);
+}
+
+.option-btn {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: var(--space-12);
+    border-radius: var(--radius-base);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-background);
+    text-align: left;
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.option-btn:hover:not(.selected):not(.correct):not(.incorrect) {
+    background-color: var(--color-secondary-hover);
+}
+
+.option-btn.selected {
+    border-color: var(--color-primary);
+    background-color: rgba(var(--color-teal-500-rgb), 0.1);
+}
+
+.option-btn.correct {
+    background-color: rgba(var(--color-success-rgb), 0.2);
+    border-color: var(--color-success);
+}
+
+.option-btn.incorrect {
+    background-color: rgba(var(--color-error-rgb), 0.2);
+    border-color: var(--color-error);
+}
+
+.quiz-controls {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-16);
+}
+
+.feedback {
+    padding: var(--space-16);
+    margin-top: var(--space-16);
+    border-radius: var(--radius-base);
+    border: 1px solid;
+}
+
+.feedback.correct-feedback {
+    background-color: rgba(var(--color-success-rgb), 0.1);
+    border-color: var(--color-success);
+    color: var(--color-success);
+}
+
+.feedback.incorrect-feedback {
+    background-color: rgba(var(--color-error-rgb), 0.1);
+    border-color: var(--color-error);
+    color: var(--color-error);
+}
+
+/* Quiz Results */
+.results-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: var(--space-16);
+    margin: var(--space-24) 0;
+}
+
+.result-card {
+    padding: var(--space-16);
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+.result-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.result-value {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    margin-top: var(--space-4);
+}
+
+.result-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-16);
+    margin-top: var(--space-32);
+}
+
+/* --- Progress Styles --- */
+.progress-stats {
+    margin-bottom: var(--space-32);
+}
+
+.charts-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.chart-container {
+    background-color: var(--color-surface);
+    padding: var(--space-20);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-card-border);
+    box-shadow: var(--shadow-sm);
+}
+
+.chart-container h3 {
+    margin-bottom: var(--space-16);
+    text-align: center;
+}
+
+/* --- Planner Styles --- */
+.planner-header {
+    margin-bottom: var(--space-24);
+}
+
+.planner-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-20);
+}
+
+.upcoming-sessions, .daily-targets {
+    background-color: var(--color-surface);
+    padding: var(--space-20);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-card-border);
+    box-shadow: var(--shadow-sm);
+}
+
+.upcoming-sessions h3, .daily-targets h3 {
+    margin-bottom: var(--space-16);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-8);
+}
+
+.session-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-8) var(--space-12);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-base);
+    margin-bottom: var(--space-8);
+    background-color: var(--color-background);
+}
+
+.session-info {
+    flex-grow: 1;
+}
+
+.session-actions {
+    margin-left: var(--space-16);
+}
+
+.session-details {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.target-progress {
+    margin-top: var(--space-20);
+}
+
+.target-progress label {
+    font-weight: var(--font-weight-medium);
+}
+
+.target-progress span {
+    display: block;
+    text-align: right;
+    font-weight: var(--font-weight-medium);
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--color-surface);
+    margin: auto;
+    padding: var(--space-32);
+    border-radius: var(--radius-lg);
+    width: 90%;
+    max-width: 500px;
+    box-shadow: var(--shadow-lg);
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    margin-bottom: var(--space-24);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-12);
+    margin-top: var(--space-24);
+}
+
+/* --- Flashcard Styles --- */
+.flashcard-header {
+    max-width: 400px;
+    margin-bottom: var(--space-32);
+}
+
+.flashcard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 400px;
+}
+
+.flashcard-wrapper {
+    width: 100%;
+    max-width: 450px;
+    perspective: 1000px;
+    margin-bottom: var(--space-24);
+}
+
+.flashcard {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    cursor: pointer;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-card-border);
+}
+
+.flashcard.flipped {
+    transform: rotateY(180deg);
+}
+
+.flashcard-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-24);
+    text-align: center;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-medium);
+    border-radius: var(--radius-lg);
+}
+
+.flashcard-back {
+    transform: rotateY(180deg);
+    background-color: var(--color-primary);
+    color: var(--color-btn-primary-text);
+}
+
+.flashcard-controls {
+    display: flex;
+    gap: var(--space-16);
+    margin-top: var(--space-24);
+}
+
+.flashcard-status {
+    text-align: center;
+    margin-top: var(--space-16);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-md);
+}
+
+.progress-bar-stack {
+    height: 20px;
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    margin-top: var(--space-16);
+    border: 1px solid var(--color-border);
+}
+
+.progress-bar-stack > div {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.progress-bar-stack .learned {
+    background-color: var(--color-success);
+}
+
+.progress-bar-stack .review {
+    background-color: var(--color-warning);
+}
+
+.progress-bar-stack .new {
+    background-color: var(--color-secondary);
+}
+
+/* --- Forum Styles --- */
+.forum-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-24);
+}
+
+.post-card {
+    margin-bottom: var(--space-16);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-16);
+    cursor: pointer;
+    transition: background-color var(--duration-fast);
+}
+
+.post-card:hover {
+    background-color: var(--color-secondary);
+    border-radius: var(--radius-sm);
+    padding: var(--space-8) var(--space-12);
+    margin: 0 calc(0 - var(--space-12)) var(--space-16) calc(0 - var(--space-12));
+}
+
+.post-meta {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-subject {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+}
+
+.post-detail-view {
+    margin-top: var(--space-20);
+    padding: var(--space-20);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-card-border);
+}
+
+.post-content {
+    margin: var(--space-16) 0;
+    padding: var(--space-16);
+    border-left: 3px solid var(--color-primary);
+    background-color: var(--color-background);
+    border-radius: var(--radius-sm);
+}
+
+.replies-section {
+    margin-top: var(--space-24);
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-16);
+}
+
+.reply-item {
+    margin-bottom: var(--space-12);
+    padding: var(--space-12);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-base);
+    background-color: var(--color-background);
+}
+
+.reply-meta {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--space-4);
+}
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <h1 class="logo">Gyankunj Academy</h1>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn--secondary btn--sm" id="themeToggle">🌙 Dark Mode</button>
+                <<div class="user-profile" id="userProfileContainer">
+    <span class="user-name" id="userName">Student</span>
+
+    <button class="btn btn--primary btn--sm" id="loginBtn">Login with Google</button>
+</div>
+            </div>
+        </div>
+    </header>
+
+    <aside class="sidebar" id="sidebar">
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="#" data-section="dashboard" class="nav-link active">📊 Dashboard</a></li>
+                <li><a href="#" data-section="study-material" class="nav-link">📚 Study Material</a></li>
+                <li><a href="#" data-section="test-series" class="nav-link">📝 Test Series</a></li>
+                <li><a href="#" data-section="mcq-bank" class="nav-link">❓ MCQ Bank</a></li>
+                <li><a href="#" data-section="progress" class="nav-link">📈 Progress</a></li>
+                <li><a href="#" data-section="planner" class="nav-link">📅 Study Planner</a></li>
+                <li><a href="#" data-section="flashcards" class="nav-link">🎴 Flashcards</a></li>
+                <li><a href="#" data-section="forum" class="nav-link">💬 Discussion Forum</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content" id="mainContent">
+        <section id="dashboard" class="content-section active">
+            <h2>Dashboard</h2>
+            <div class="stats-grid">
+                <div class="stat-card" style="background-color: var(--color-bg-1);">
+                    <div class="stat-icon">📝</div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="totalTests">0</div>
+                        <div class="stat-label">Tests Taken</div>
+                    </div>
+                </div>
+                <div class="stat-card" style="background-color: var(--color-bg-2);">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="avgScore">0%</div>
+                        <div class="stat-label">Average Score</div>
+                    </div>
+                </div>
+                <div class="stat-card" style="background-color: var(--color-bg-3);">
+                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="studyHours">0h</div>
+                        <div class="stat-label">Study Hours</div>
+                    </div>
+                </div>
+                <div class="stat-card" style="background-color: var(--color-bg-4);">
+                    <div class="stat-icon">🔥</div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="currentStreak">0</div>
+                        <div class="stat-label">Day Streak</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-actions">
+                <h3>Quick Access</h3>
+                <div class="action-grid">
+                    <button class="action-card" data-section="mcq-bank">
+                        <div class="action-icon">❓</div>
+                        <div class="action-title">Start Quiz</div>
+                    </button>
+                    <button class="action-card" data-section="study-material">
+                        <div class="action-icon">📚</div>
+                        <div class="action-title">Study Material</div>
+                    </button>
+                    <button class="action-card" data-section="planner">
+                        <div class="action-icon">📅</div>
+                        <div class="action-title">Plan Study</div>
+                    </button>
+                    <button class="action-card" data-section="flashcards">
+                        <div class="action-icon">🎴</div>
+                        <div class="action-title">Flashcards</div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="recent-activity">
+                <h3>Recent Activity</h3>
+                <div id="recentActivityList" class="activity-list"></div>
+            </div>
+        </section>
+
+        <section id="study-material" class="content-section">
+            <h2>Study Material</h2>
+<div classcard" style="margin-bottom: 20px;">
+    <div class="card__body">
+        <h3>Upload New Notes PDF</h3>
+        <form id="uploadForm">
+            <div class="form-group">
+                <label for="topicSelect" class="form-label">Select Topic to Upload For:</label>
+                <select id="topicSelect" class="form-control">
+                    <option value="ancient-history">Ancient History</option>
+                    <option value="modern-history">Modern History</option>
+                    <option value="medieval-history">Medieval History</option>
+                    <option value="indian-geography">Indian Geography</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="fileInput" class="form-label">Select PDF File:</label>
+                <input type="file" id="fileInput" class="form-control" accept=".pdf" required>
+            </div>
+            <button type="submit" class="btn btn--primary">Upload PDF</button>
+        </form>
+        <div id="uploadStatus" style="margin-top: 15px;"></div>
+    </div>
+</div>
+ <div class="material-grid">
+                <div class="material-card">
+                    <h3>GS1: History &amp; Geography</h3>
+                    <ul class="topic-list">
+                        <li><a href="#" class="topic-link" data-topic="ancient-history">Ancient History</a></li>
+                        <li><a href="#" class="topic-link" data-topic="medieval-history">Medieval History</a></li>
+                        <li><a href="#" class="topic-link" data-topic="modern-history">Modern History</a></li>
+                        <li><a href="#" class="topic-link" data-topic="indian-geography">Indian Geography</a></li>
+                        <li><a href="#" class="topic-link" data-topic="world-geography">World Geography</a></li>
+                    </ul>
+                </div>
+                <div class="material-card">
+                    <h3>GS2: Polity &amp; Governance</h3>
+                    <ul class="topic-list">
+                        <li><a href="#" class="topic-link" data-topic="constitution">Indian Constitution</a></li>
+                        <li><a href="#" class="topic-link" data-topic="political-system">Political System</a></li>
+                        <li><a href="#" class="topic-link" data-topic="governance">Governance</a></li>
+                        <li><a href="#" class="topic-link" data-topic="social-justice">Social Justice</a></li>
+                    </ul>
+                </div>
+                <div class="material-card">
+                    <h3>GS3: Economy &amp; Sci-Tech</h3>
+                    <ul class="topic-list">
+                        <li><a href="#" class="topic-link" data-topic="indian-economy">Indian Economy</a></li>
+                        <li><a href="#" class="topic-link" data-topic="agriculture">Agriculture</a></li>
+                        <li><a href="#" class="topic-link" data-topic="science-tech">Science &amp; Technology</a></li>
+                        <li><a href="#" class="topic-link" data-topic="environment">Environment</a></li>
+                    </ul>
+                </div>
+                <div class="material-card">
+                    <h3>GS4: Ethics &amp; Integrity</h3>
+                    <ul class="topic-list">
+                        <li><a href="#" class="topic-link" data-topic="ethics-basics">Ethics Basics</a></li>
+                        <li><a href="#" class="topic-link" data-topic="aptitude">Aptitude</a></li>
+                        <li><a href="#" class="topic-link" data-topic="case-studies">Case Studies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="topicContent" class="topic-content">
+                <p>Select a topic from the lists above to view detailed study material.</p>
+            </div>
+        </section>
+
+        <section id="test-series" class="content-section">
+            <h2>Test Series</h2>
+            <div class="test-grid">
+                <div class="test-card card">
+                    <div class="card__body">
+                        <h3>Ancient History Test</h3>
+                        <p class="test-info">20 Questions • 5 Minutes (Fast Quiz)</p>
+                        <button class="btn btn--primary" onclick="startTest('History')">Start Test</button>
+                    </div>
+                </div>
+                <div class="test-card card">
+                    <div class="card__body">
+                        <h3>Geography Test</h3>
+                        <p class="test-info">20 Questions • 5 Minutes (Fast Quiz)</p>
+                        <button class="btn btn--primary" onclick="startTest('Geography')">Start Test</button>
+                    </div>
+                </div>
+                <div class="test-card card">
+                    <div class="card__body">
+                        <h3>Polity Test</h3>
+                        <p class="test-info">20 Questions • 5 Minutes (Fast Quiz)</p>
+                        <button class="btn btn--primary" onclick="startTest('Polity')">Start Test</button>
+                    </div>
+                </div>
+                <div class="test-card card">
+                    <div class="card__body">
+                        <h3>Economy Test</h3>
+                        <p class="test-info">20 Questions • 5 Minutes (Fast Quiz)</p>
+                        <button class="btn btn--primary" onclick="startTest('Economy')">Start Test</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mcq-bank" class="content-section">
+            <div id="quizContainer">
+                <div id="quizStart" class="quiz-start">
+                    <h2>MCQ Quiz Bank</h2>
+                    <p>Test your knowledge with our comprehensive question bank</p>
+                    <div class="quiz-options">
+                        <div class="form-group">
+                            <label for="subjectSelect" class="form-label">Select Subject:</label>
+                            <select id="subjectSelect" class="form-control">
+                                <option value="all">All Subjects</option>
+                                <option value="History">History</option>
+                                <option value="Geography">Geography</option>
+                                <option value="Polity">Polity</option>
+                                <option value="Economy">Economy</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="questionCount" class="form-label">Number of Questions:</label>
+                            <select id="questionCount" class="form-control">
+                                <option value="10">10 Questions</option>
+                                <option value="20" selected>20 Questions</option>
+                                <option value="50">50 Questions</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn btn--primary btn--lg" onclick="startQuiz()">Start Quiz</button>
+                </div>
+
+                <div id="quizActive" class="quiz-active" style="display: none;">
+                    <div class="quiz-header">
+                        <div class="quiz-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            <div class="question-counter" id="questionCounter">Question 1 of 20</div>
+                        </div>
+                        <div class="quiz-timer" id="quizTimer">⏱️ 05:00</div>
+                    </div>
+
+                    <div class="question-container">
+                        <h3 id="questionText"></h3>
+                        <div class="options-container" id="optionsContainer"></div>
+                        <div id="feedback" class="feedback" style="display: none;"></div>
+                    </div>
+
+                    <div class="quiz-controls">
+                        <button class="btn btn--secondary" id="prevBtn" onclick="prevQuestion()" disabled>Previous</button>
+                        <button class="btn btn--primary" id="nextBtn" onclick="nextQuestion()" disabled>Next Question</button>
+                    </div>
+                </div>
+
+                <div id="quizResults" class="quiz-results" style="display: none;">
+                    <h2>Quiz Results</h2>
+                    <div class="results-summary">
+                        <div class="result-card" style="background-color: var(--color-bg-1);">
+                            <div class="result-label">Score</div>
+                            <div class="result-value" id="finalScore">0/20</div>
+                        </div>
+                        <div class="result-card" style="background-color: var(--color-bg-2);">
+                            <div class="result-label">Percentage</div>
+                            <div class="result-value" id="finalPercentage">0%</div>
+                        </div>
+                        <div class="result-card" style="background-color: var(--color-bg-3);">
+                            <div class="result-label">Correct</div>
+                            <div class="result-value" id="correctCount">0</div>
+                        </div>
+                        <div class="result-card" style="background-color: var(--color-bg-4);">
+                            <div class="result-label">Incorrect</div>
+                            <div class="result-value" id="incorrectCount">0</div>
+                        </div>
+                        <div class="result-card" style="background-color: var(--color-bg-5);">
+                            <div class="result-label">Time Taken</div>
+                            <div class="result-value" id="timeTaken">00:00</div>
+                        </div>
+                    </div>
+                    <div class="result-actions">
+                        <button class="btn btn--primary" onclick="restartQuiz()">Start New Quiz</button>
+                        <button class="btn btn--secondary" onclick="viewProgress()">View Progress</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="progress" class="content-section">
+            <h2>Progress Tracking</h2>
+            <div class="progress-stats stats-grid">
+                <div class="stat-card" style="background-color: var(--color-bg-1);">
+                    <div class="stat-value" id="progressTotalTests">0</div>
+                    <div class="stat-label">Total Tests</div>
+                </div>
+                <div class="stat-card" style="background-color: var(--color-bg-2);">
+                    <div class="stat-value" id="progressAvgScore">0%</div>
+                    <div class="stat-label">Average Score</div>
+                </div>
+                <div class="stat-card" style="background-color: var(--color-bg-3);">
+                    <div class="stat-value" id="progressStudyHours">0h</div>
+                    <div class="stat-label">Total Study Hours</div>
+                </div>
+                <div class="stat-card" style="background-color: var(--color-bg-4);">
+                    <div class="stat-value" id="progressStreak">0</div>
+                    <div class="stat-label">Current Streak</div>
+                </div>
+            </div>
+
+            <div class="charts-grid">
+                <div class="chart-container">
+                    <h3>Test Score Trend</h3>
+                    <canvas id="scoreTrendChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Subject-wise Average Scores</h3>
+                    <canvas id="subjectScoresChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Performance Distribution</h3>
+                    <canvas id="performanceDistChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Weekly Study Hours</h3>
+                    <canvas id="weeklyStudyChart"></canvas>
+                </div>
+            </div>
+
+            <div class="weak-areas">
+                <h3>Areas for Improvement (Low Subject Average)</h3>
+                <div id="weakAreasList"></div>
+            </div>
+        </section>
+
+        <section id="planner" class="content-section">
+            <h2>Study Planner</h2>
+            <div class="planner-header">
+                <button class="btn btn--primary" onclick="showAddSessionModal()">+ Add Study Session</button>
+            </div>
+
+            <div class="planner-grid">
+                <div class="upcoming-sessions">
+                    <h3>Upcoming Sessions (Next 7 Days)</h3>
+                    <div id="upcomingSessions"></div>
+                </div>
+                <div class="daily-targets">
+                    <h3>Today's Targets</h3>
+                    <div id="dailyTargets"></div>
+                    <div class="target-progress">
+                        <label>Daily Completion</label>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="dailyProgress" style="width: 0%"></div>
+                        </div>
+                        <span id="dailyProgressText">0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="addSessionModal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <h3>Add Study Session</h3>
+                    <form id="addSessionForm">
+                        <div class="form-group">
+                            <label for="sessionDate" class="form-label">Date</label>
+                            <input type="date" id="sessionDate" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sessionSubject" class="form-label">Subject</label>
+                            <select id="sessionSubject" class="form-control" required>
+                                <option value="History">History</option>
+                                <option value="Geography">Geography</option>
+                                <option value="Polity">Polity</option>
+                                <option value="Economy">Economy</option>
+                                <option value="Ethics">Ethics</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="sessionTopic" class="form-label">Topic</label>
+                            <input type="text" id="sessionTopic" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sessionDuration" class="form-label">Duration (minutes)</label>
+                            <input type="number" id="sessionDuration" class="form-control" value="60" min="15" step="15" required>
+                        </div>
+                        <div class="modal-actions">
+                            <button type="submit" class="btn btn--primary">Add Session</button>
+                            <button type="button" class="btn btn--secondary" onclick="closeAddSessionModal()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="flashcards" class="content-section">
+            <h2>Flashcards</h2>
+            <div class="flashcard-header">
+                <select id="flashcardSetSelect" class="form-control" onchange="loadFlashcardSet()">
+                    </select>
+            </div>
+            
+            <div id="flashcard-progress-bar" class="progress-bar-stack" style="max-width: 450px; margin: 0 auto 20px auto;">
+                <div id="flashcard-progress-learned" class="learned" style="width: 0%;"></div>
+                <div id="flashcard-progress-review" class="review" style="width: 0%;"></div>
+                <div id="flashcard-progress-new" class="new" style="width: 100%;"></div>
+            </div>
+
+            <div class="flashcard-container">
+                <div id="flashcardWrapper" class="flashcard-wrapper">
+                    <div id="flashcard" class="flashcard">
+                        <div id="flashcardFront" class="flashcard-face flashcard-front">Question: Loading...</div>
+                        <div id="flashcardBack" class="flashcard-face flashcard-back">Answer: Loading...</div>
+                    </div>
+                </div>
+                <div id="flashcardStatus" class="flashcard-status">0 of 0 cards loaded.</div>
+                <div id="flashcardControls" class="flashcard-controls" style="display: none;">
+                    <button class="btn btn--secondary" onclick="prevCard()">&#x2190; Previous</button>
+                    <button class="btn btn--primary" onclick="markCard('learned')">Mark Learned</button>
+                    <button class="btn btn--outline" onclick="markCard('review')">Needs Review</button>
+                    <button class="btn btn--primary" onclick="nextCard()">Next &#x2192;</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="forum" class="content-section">
+            <h2>Discussion Forum</h2>
+            <div id="forumList" style="display: block;">
+                <div class="forum-header">
+                    <h3>Latest Discussions</h3>
+                    <button class="btn btn--primary" onclick="showCreatePostModal()">+ New Post</button>
+                </div>
+                <div id="postsContainer">
+                    </div>
+            </div>
+
+            <div id="postDetail" class="post-detail-view" style="display: none;">
+                <button class="btn btn--secondary btn--sm" onclick="hidePostDetail()">&#x2190; Back to Forum</button>
+                <h3 id="detailTitle"></h3>
+                <div class="post-meta">
+                    <span id="detailAuthor"></span>
+                    <span id="detailTimestamp"></span>
+                </div>
+                <p class="post-content" id="detailContent"></p>
+                
+                <div class="replies-section">
+                    <h4>Replies (<span id="replyCount">0</span>)</h4>
+                    <div id="repliesContainer">
+                        </div>
+                    
+                    <form id="addReplyForm" style="margin-top: var(--space-20);">
+                        <div class="form-group">
+                            <label for="replyContent" class="form-label">Add a Reply:</label>
+                            <textarea id="replyContent" class="form-control" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--primary">Submit Reply</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="createPostModal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <h3>Create New Discussion Post</h3>
+                    <form id="createPostForm">
+                        <div class="form-group">
+                            <label for="postSubject" class="form-label">Subject</label>
+                            <select id="postSubject" class="form-control" required>
+                                <option value="History">History</option>
+                                <option value="Geography">Geography</option>
+                                <option value="Polity">Polity</option>
+                                <option value="Economy">Economy</option>
+                                <option value="General">General</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="postTitle" class="form-label">Title</label>
+                            <input type="text" id="postTitle" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="postContent" class="form-label">Content</label>
+                            <textarea id="postContent" class="form-control" rows="5" required></textarea>
+                        </div>
+                        <div class="modal-actions">
+                            <button type="submit" class="btn btn--primary">Create Post</button>
+                            <button type="button" class="btn btn--secondary" onclick="closeCreatePostModal()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+
+<script>
+  // --- START OF FIREBASE CONFIG ---
+
+  // IMPORTANT: Paste your firebaseConfig object here from the Firebase console
+  const firebaseConfig = {
+    apiKey: "AIzaSyBmELWw6_Bp_tc6HO5WWgcZYT9cHWi0Di8",
+    authDomain: "gyankunj-app.firebaseapp.com",
+    projectId: "gyankunj-app",
+    storageBucket: "gyankunj-app.firebasestorage.app",
+    messagingSenderId: "248312055648",
+    appId:"1:248312055648:web:05d24a61ed985278198005",
+    
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth(); // Get the auth service
+
+  // --- END OF FIREBASE CONFIG ---
+
+// --- 2. YOUR APP'S STATE AND DATA ---
+
+// State management using JavaScript variables (NOT localStorage due to sandbox restrictions)
+let appState = {
+  quizResults: [],
+  studySessions: [],
+  flashcardProgress: {},
+  forumPosts: [],
+  preferences: {
+    theme: 'light'
+  },
+  currentUser: 'Student'
+};
+
+// Quiz data
+const quizQuestions = [
+  {
+    id: 1,
+    question: "Which dynasty founded the Mauryan Empire?",
+    subject: "History",
+    difficulty: "easy",
+    options: {
+      a: "Maurya dynasty",
+      b: "Gupta dynasty",
+      c: "Ashoka",
+      d: "Chandragupta Maurya (founder)"
+    },
+    correct_answer: "a",
+    explanation: "Chandragupta Maurya founded the Mauryan Empire around 322 BCE. It was one of the largest empires in ancient India."
+  },
+  {
+    id: 2,
+    question: "Who was the first Mughal Emperor?",
+    subject: "History",
+    difficulty: "easy",
+    options: {
+      a: "Akbar",
+      b: "Babur",
+      c: "Humayun",
+      d: "Shah Jahan"
+    },
+    correct_answer: "b",
+    explanation: "Babur founded the Mughal Empire in 1526 after defeating Ibrahim Lodi at the Battle of Panipat."
+  },
+  {
+    id: 3,
+    question: "In which year did India become a republic?",
+    subject: "Polity",
+    difficulty: "easy",
+    options: {
+      a: "1947",
+      b: "1950",
+      c: "1952",
+      d: "1949"
+    },
+    correct_answer: "b",
+    explanation: "India adopted its constitution and became a sovereign democratic republic on January 26, 1950."
+  },
+  {
+    id: 4,
+    question: "How many states are there in India as of 2023?",
+    subject: "Polity",
+    difficulty: "medium",
+    options: {
+      a: "26",
+      b: "28",
+      c: "29",
+      d: "31"
+    },
+    correct_answer: "b",
+    explanation: "India has 28 states and 8 Union Territories after the creation of Telangana in 2014."
+  },
+  {
+    id: 5,
+    question: "Which is the largest river in India by length?",
+    subject: "Geography",
+    difficulty: "easy",
+    options: {
+      a: "Brahmaputra",
+      b: "Ganges",
+      c: "Indus",
+      d: "Yamuna"
+    },
+    correct_answer: "b",
+    explanation: "The Ganges River is the longest river in India, flowing through northern India for about 2,525 km."
+  },
+  {
+    id: 6,
+    question: "What is the capital of Madhya Pradesh?",
+    subject: "Geography",
+    difficulty: "easy",
+    options: {
+      a: "Indore",
+      b: "Bhopal",
+      c: "Jabalpur",
+      d: "Ujjain"
+    },
+    correct_answer: "b",
+    explanation: "Bhopal is the capital of Madhya Pradesh state. It is located in the central part of India."
+  },
+  {
+    id: 7,
+    question: "Which article of the Indian Constitution deals with fundamental rights?",
+    subject: "Polity",
+    difficulty: "medium",
+    options: {
+      a: "Articles 12-35",
+      b: "Articles 1-11",
+      c: "Articles 36-51",
+      d: "Articles 52-62"
+    },
+    correct_answer: "a",
+    explanation: "Part III of the Indian Constitution (Articles 12-35) contains the Fundamental Rights."
+  },
+  {
+    id: 8,
+    question: "Who is known as the 'Father of the Indian Constitution'?",
+    subject: "Polity",
+    difficulty: "easy",
+    options: {
+      a: "Mahatma Gandhi",
+      b: "Dr. B.R. Ambedkar",
+      c: "Jawaharlal Nehru",
+      d: "Sardar Patel"
+    },
+    correct_answer: "b",
+    explanation: "Dr. Bhimrao Ramji Ambedkar was the chief architect of the Indian Constitution and is called its father."
+  },
+  {
+    id: 9,
+    question: "The Battle of Plassey was fought in which year?",
+    subject: "History",
+    difficulty: "medium",
+    options: {
+      a: "1757",
+      b: "1764",
+      c: "1775",
+      d: "1857"
+    },
+    correct_answer: "a",
+    explanation: "The Battle of Plassey was fought on June 23, 1757, marking the beginning of British rule in India."
+  },
+  {
+    id: 10,
+    question: "Which mountain range separates India from Tibet?",
+    subject: "Geography",
+    difficulty: "easy",
+    options: {
+      a: "Aravalli",
+      b: "Vindhya",
+      c: "Himalayas",
+      d: "Western Ghats"
+    },
+    correct_answer: "c",
+    explanation: "The Himalayas form a natural barrier between India and Tibet, containing the world's highest peaks."
+  },
+  {
+    id: 11,
+    question: "What is the GDP growth rate target set in the latest budget?",
+    subject: "Economy",
+    difficulty: "medium",
+    options: {
+      a: "6.5%",
+      b: "7.0%",
+      c: "7.5%",
+      d: "8.0%"
+    },
+    correct_answer: "b",
+    explanation: "The government typically targets around 7% GDP growth for sustainable economic development."
+  },
+  {
+    id: 12,
+    question: "Which Five Year Plan was terminated prematurely?",
+    subject: "Economy",
+    difficulty: "hard",
+    options: {
+      a: "Third Plan",
+      b: "Fifth Plan",
+      c: "Seventh Plan",
+      d: "Tenth Plan"
+    },
+    correct_answer: "b",
+    explanation: "The Fifth Five Year Plan (1974-79) was terminated one year early in 1978."
+  },
+  {
+    id: 13,
+    question: "Who was the first President of India?",
+    subject: "Polity",
+    difficulty: "easy",
+    options: {
+      a: "Dr. Rajendra Prasad",
+      b: "Dr. S. Radhakrishnan",
+      c: "Jawaharlal Nehru",
+      d: "Sardar Patel"
+    },
+    correct_answer: "a",
+    explanation: "Dr. Rajendra Prasad served as the first President of India from 1950 to 1962."
+  },
+  {
+    id: 14,
+    question: "The Indian National Congress was founded in which year?",
+    subject: "History",
+    difficulty: "medium",
+    options: {
+      a: "1875",
+      b: "1885",
+      c: "1895",
+      d: "1905"
+    },
+    correct_answer: "b",
+    explanation: "The Indian National Congress was founded in 1885 by Allan Octavian Hume."
+  },
+  {
+    id: 15,
+    question: "Which is the southernmost point of India?",
+    subject: "Geography",
+    difficulty: "medium",
+    options: {
+      a: "Kanyakumari",
+      b: "Indira Point",
+      c: "Point Calimere",
+      d: "Rameshwaram"
+    },
+    correct_answer: "b",
+    explanation: "Indira Point in the Andaman and Nicobar Islands is the southernmost point of India."
+  },
+  {
+    id: 16,
+    question: "The Quit India Movement was launched in which year?",
+    subject: "History",
+    difficulty: "medium",
+    options: {
+      a: "1940",
+      b: "1942",
+      c: "1945",
+      d: "1946"
+    },
+    correct_answer: "b",
+    explanation: "The Quit India Movement was launched by Mahatma Gandhi on August 8, 1942."
+  },
+  {
+    id: 17,
+    question: "Which article of the Constitution abolishes untouchability?",
+    subject: "Polity",
+    difficulty: "medium",
+    options: {
+      a: "Article 14",
+      b: "Article 15",
+      c: "Article 17",
+      d: "Article 19"
+    },
+    correct_answer: "c",
+    explanation: "Article 17 of the Indian Constitution abolishes untouchability and forbids its practice in any form."
+  },
+  {
+    id: 18,
+    question: "The Reserve Bank of India was nationalized in which year?",
+    subject: "Economy",
+    difficulty: "hard",
+    options: {
+      a: "1947",
+      b: "1949",
+      c: "1951",
+      d: "1955"
+    },
+    correct_answer: "b",
+    explanation: "The Reserve Bank of India was nationalized on January 1, 1949."
+  },
+  {
+    id: 19,
+    question: "Which state has the longest coastline in India?",
+    subject: "Geography",
+    difficulty: "medium",
+    options: {
+      a: "Maharashtra",
+      b: "Gujarat",
+      c: "Tamil Nadu",
+      d: "Andhra Pradesh"
+    },
+    correct_answer: "b",
+    explanation: "Gujarat has the longest coastline in India, stretching over 1,600 km."
+  },
+  {
+    id: 20,
+    question: "The concept of Directive Principles is borrowed from which country's constitution?",
+    subject: "Polity",
+    difficulty: "medium",
+    options: {
+      a: "USA",
+      b: "UK",
+      c: "Ireland",
+      d: "France"
+    },
+    correct_answer: "c",
+    explanation: "The Directive Principles of State Policy are borrowed from the Irish Constitution."
+  }
+];
+
+// Flashcard sets
+const flashcardSets = [
+  {
+    name: "Ancient History",
+    cards: [
+      { q: "Who was the first Mauryan Emperor?", a: "Chandragupta Maurya" },
+      { q: "In which year did Ashoka become emperor?", a: "268 BCE" },
+      { q: "What was the capital of the Mauryan Empire?", a: "Pataliputra (modern-day Patna)" },
+      { q: "Which empire ruled India before the Mauryas?", a: "Nanda Dynasty" },
+      { q: "Who was Chanakya?", a: "Chief advisor and prime minister of Chandragupta Maurya, also known as Kautilya" },
+      { q: "What is the significance of the Battle of Kalinga?", a: "It led to Ashoka's conversion to Buddhism due to the massive bloodshed" },
+      { q: "What are Ashoka's edicts?", a: "Inscriptions on pillars and rocks spreading Buddhist teachings and moral values" },
+      { q: "Which religion did Ashoka promote?", a: "Buddhism" },
+      { q: "What was the Arthashastra?", a: "An ancient Indian treatise on statecraft, economics, and military strategy written by Chanakya" },
+      { q: "When did the Mauryan Empire end?", a: "Around 185 BCE" }
+    ]
+  },
+  {
+    name: "Medieval History",
+    cards: [
+      { q: "Who founded the Delhi Sultanate?", a: "Qutub-ud-din Aibak" },
+      { q: "Which was the first dynasty of Delhi Sultanate?", a: "Slave Dynasty (Mamluk Dynasty)" },
+      { q: "Who built the Qutub Minar?", a: "Started by Qutub-ud-din Aibak, completed by Iltutmish" },
+      { q: "Who was Alauddin Khilji?", a: "Second ruler of the Khilji Dynasty, known for market reforms and military conquests" },
+      { q: "Which battle established Mughal rule in India?", a: "First Battle of Panipat (1526)" },
+      { q: "Who was Akbar the Great?", a: "Third Mughal Emperor, known for religious tolerance and administrative reforms" },
+      { q: "What was Din-i-Ilahi?", a: "A syncretic religion founded by Akbar" },
+      { q: "Who built the Taj Mahal?", a: "Shah Jahan" },
+      { q: "What was the Mansabdari system?", a: "Military and administrative system introduced by Akbar" },
+      { q: "Who was the last powerful Mughal emperor?", a: "Aurangzeb" }
+    ]
+  },
+  {
+    name: "Modern History",
+    cards: [
+      { q: "When did the British East India Company arrive in India?", a: "1600 (received charter), arrived 1608" },
+      { q: "What was the Doctrine of Lapse?", a: "Policy by Lord Dalhousie to annex princely states without natural heirs" },
+      { q: "When did the Revolt of 1857 occur?", a: "1857 (also called First War of Independence)" },
+      { q: "Who founded the Indian National Congress?", a: "Allan Octavian Hume in 1885" },
+      { q: "What was the Jallianwala Bagh Massacre?", a: "Mass shooting by British troops in Amritsar on April 13, 1919" },
+      { q: "When was the Non-Cooperation Movement launched?", a: "1920 by Mahatma Gandhi" },
+      { q: "What was the Salt March?", a: "1930 protest against British salt tax led by Gandhi" },
+      { q: "When was the Quit India Movement launched?", a: "August 8, 1942" },
+      { q: "When did India gain independence?", a: "August 15, 1947" },
+      { q: "Who was the first Prime Minister of India?", a: "Jawaharlal Nehru" }
+    ]
+  },
+  {
+    name: "Indian Geography",
+    cards: [
+      { q: "What is the total area of India?", a: "3.287 million km²" },
+      { q: "How many states and union territories does India have?", a: "28 states and 8 union territories" },
+      { q: "Which is the largest state by area?", a: "Rajasthan" },
+      { q: "Which is the smallest state by area?", a: "Goa" },
+      { q: "What are the Western Ghats?", a: "Mountain range running parallel to the western coast of India" },
+      { q: "Which is the highest peak in India?", a: "Kanchenjunga (8,586 m)" },
+      { q: "What is the Deccan Plateau?", a: "Large plateau in southern India" },
+      { q: "Which river is called the 'Sorrow of Bihar'?", a: "Kosi River" },
+      { q: "What is the total coastline of India?", a: "Approximately 7,517 km" },
+      { q: "Which is the largest freshwater lake in India?", a: "Wular Lake in Jammu and Kashmir" }
+    ]
+  },
+  {
+    name: "Polity Basics",
+    cards: [
+      { q: "What type of government does India have?", a: "Parliamentary democratic republic" },
+      { q: "How many fundamental rights are there?", a: "Six fundamental rights" },
+      { q: "What is the term of Lok Sabha?", a: "5 years" },
+      { q: "How many members are in Lok Sabha?", a: "Maximum 552 (530 states + 20 UTs + 2 Anglo-Indians)" },
+      { q: "What is the term of Rajya Sabha members?", a: "6 years (1/3rd retire every 2 years)" },
+      { q: "Who is the constitutional head of India?", a: "The President" },
+      { q: "Who appoints the Prime Minister?", a: "The President" },
+      { q: "What is the minimum age to become President?", a: "35 years" },
+      { q: "How is the President of India elected?", a: "By an electoral college through indirect election" },
+      { q: "What is judicial review?", a: "Power of courts to examine the constitutionality of laws" }
+    ]
+  },
+  {
+    name: "Constitution",
+    cards: [
+      { q: "When was the Indian Constitution adopted?", a: "November 26, 1949" },
+      { q: "When did the Constitution come into effect?", a: "January 26, 1950" },
+      { q: "Who is known as the Father of the Constitution?", a: "Dr. B.R. Ambedkar" },
+      { q: "How many articles were in the original Constitution?", a: "395 articles" },
+      { q: "How many schedules are in the Constitution?", a: "12 schedules" },
+      { q: "What is the Preamble?", a: "Introduction to the Constitution stating its objectives" },
+      { q: "What are Directive Principles?", a: "Guidelines for the government to create social and economic conditions for welfare" },
+      { q: "Which part contains Fundamental Rights?", a: "Part III (Articles 12-35)" },
+      { q: "What is Article 356?", a: "President's Rule (allows central government to take over state administration)" },
+      { q: "How many times has the Constitution been amended?", a: "Over 100 times (105 amendments as of 2024)" }
+    ]
+  },
+  {
+    name: "Economy Basics",
+    cards: [
+      { q: "What is GDP?", a: "Gross Domestic Product - total value of goods and services produced" },
+      { q: "What is fiscal deficit?", a: "Difference between government's total expenditure and total revenue" },
+      { q: "What is GST?", a: "Goods and Services Tax - indirect tax on supply of goods and services" },
+      { q: "When was GST implemented in India?", a: "July 1, 2017" },
+      { q: "What is the repo rate?", a: "Rate at which RBI lends to commercial banks" },
+      { q: "What is inflation?", a: "General increase in prices and fall in purchasing power" },
+      { q: "What is the base year for GDP calculation?", a: "2011-12 (as of current standards)" },
+      { q: "What is the poverty line?", a: "Minimum income level needed to secure basic necessities" },
+      { q: "What is NITI Aayog?", a: "Policy think tank of Government of India, replaced Planning Commission" },
+      { q: "What is disinvestment?", a: "Sale of government stake in public sector enterprises" }
+    ]
+  },
+  {
+    name: "Environment",
+    cards: [
+      { q: "What is biodiversity?", a: "Variety of life in all its forms and interactions" },
+      { q: "What causes global warming?", a: "Greenhouse gases trapping heat in atmosphere" },
+      { q: "What is the Paris Agreement?", a: "2015 international treaty on climate change" },
+      { q: "What is renewable energy?", a: "Energy from sources that naturally replenish (solar, wind, hydro)" },
+      { q: "What is the ozone layer?", a: "Layer in stratosphere that protects Earth from UV radiation" },
+      { q: "What is deforestation?", a: "Clearing of forests for other land uses" },
+      { q: "What are the main greenhouse gases?", a: "CO2, Methane, Nitrous Oxide, Water vapor" },
+      { q: "What is sustainable development?", a: "Development that meets present needs without compromising future generations" },
+      { q: "What is the National Green Tribunal?", a: "Special court for environmental protection and conservation" },
+      { q: "What is carbon footprint?", a: "Total greenhouse gas emissions caused by an individual or organization" }
+    ]
+  }
+];
+
+// Quiz state
+let currentQuiz = {
+  questions: [],
+  currentIndex: 0,
+  answers: [],
+  startTime: null,
+  timerInterval: null,
+  timeLimit: 300 // 5 minutes in seconds
+};
+
+// Flashcard state
+let currentFlashcardSetIndex = 0;
+let currentCardIndex = 0;
+let isFlipped = false;
+
+// Forum state
+let currentPostId = null;
+
+// Chart instances
+let scoreTrendChartInstance = null;
+let subjectScoresChartInstance = null;
+let performanceDistChartInstance = null;
+let weeklyStudyChartInstance = null;
+
+// --- UTILITY FUNCTIONS ---
+
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+function calculateStudyStreak(sessions) {
+    if (sessions.length === 0) return 0;
+    
+    const uniqueDates = [...new Set(sessions.map(s => s.date))].sort().reverse();
+    if (uniqueDates.length === 0) return 0;
+
+    let streak = 0;
+    let checkDate = new Date();
+    checkDate.setHours(0, 0, 0, 0);
+
+    const todayStr = checkDate.toISOString().split('T')[0];
+    const hasToday = uniqueDates.includes(todayStr);
+
+    if (hasToday) {
+        streak = 1;
+        checkDate.setDate(checkDate.getDate() - 1);
+    } else {
+        checkDate.setDate(checkDate.getDate() - 1);
+    }
+    
+    let prevDateStr = checkDate.toISOString().split('T')[0];
+
+    for (let i = 0; i < uniqueDates.length; i++) {
+        let date = uniqueDates[i];
+        if (date > todayStr) continue; // Skip future sessions
+
+        if (date === prevDateStr) {
+            streak++;
+            checkDate.setDate(checkDate.getDate() - 1);
+            prevDateStr = checkDate.toISOString().split('T')[0];
+        } else if (date < prevDateStr) {
+            if (hasToday && date < todayStr) {
+                break;
+            } else if (!hasToday && date < todayStr && date !== prevDateStr) {
+                 break;
+            }
+        }
+    }
+
+    return streak;
+}
+
+function getChartColors() {
+    const style = getComputedStyle(document.body);
+    return {
+        primary: style.getPropertyValue('--color-primary').trim(),
+        secondary: style.getPropertyValue('--color-secondary-hover').trim(),
+        bg1: style.getPropertyValue('--color-bg-1').trim(),
+        bg2: style.getPropertyValue('--color-bg-2').trim(),
+        bg3: style.getPropertyValue('--color-bg-3').trim(),
+        bg4: style.getPropertyValue('--color-bg-4').trim(),
+        text: style.getPropertyValue('--color-text').trim(),
+        error: style.getPropertyValue('--color-error').trim(),
+        success: style.getPropertyValue('--color-success').trim(),
+        warning: style.getPropertyValue('--color-warning').trim(),
+    };
+}
+
+// --- INITIALIZATION & EVENT LISTENERS ---
+
+document.addEventListener('DOMContentLoaded', function() {
+  initializeApp();
+  setupEventListeners();
+  initializeSampleData();
+  loadDashboard();
+  populateFlashcardSetSelect();
+  loadFlashcardSet();
+  loadForumPosts();
+  loadPlanner();
+});
+
+function initializeApp() {
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initialTheme = appState.preferences.theme === 'dark' ? 'dark' : (prefersDark ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', initialTheme);
+  document.getElementById('themeToggle').textContent = initialTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+}
+
+function setupEventListeners() {
+  // Navigation
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const section = this.getAttribute('data-section');
+      navigateToSection(section);
+    });
+  });
+
+  // Theme Toggle
+  document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
+  // Menu Toggle (Mobile)
+  document.getElementById('menuToggle').addEventListener('click', toggleSidebar);
+  
+  // PDF UPLOAD LISTENER
+  document.getElementById('uploadForm').addEventListener('submit', handlePdfUpload);
+
+  // Quick action cards (for dashboard)
+  document.querySelectorAll('.action-card').forEach(card => {
+    card.addEventListener('click', function() {
+        const section = this.getAttribute('data-section');
+        navigateToSection(section);
+    });
+  });
+  
+  // Study Material Topic Links
+  document.querySelectorAll('.topic-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        displayStudyMaterial(this.getAttribute('data-topic'));
+        document.querySelectorAll('.topic-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+    });
+  });
+  
+  // Study Planner form submit
+  document.getElementById('addSessionForm').addEventListener('submit', handleAddSession);
+  
+  // Forum form submit
+  document.getElementById('createPostForm').addEventListener('submit', handleCreatePost);
+  document.getElementById('addReplyForm').addEventListener('submit', handleAddReply);
+
+  // Flashcard flip
+  document.getElementById('flashcard').addEventListener('click', flipCard);
+  
+  // --- NEW AUTH LISTENER ---
+  // This listens for clicks on the whole page to find the
+  // dynamically added login/logout buttons
+  document.addEventListener('click', (event) => {
+    if (event.target.id === 'loginBtn') {
+      signInWithGoogle();
+    }
+    if (event.target.id === 'logoutBtn') {
+      signOutUser();
+    }
+  });
+}
+
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('open');
+}
+
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    appState.preferences.theme = newTheme;
+    document.getElementById('themeToggle').textContent = newTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+    
+    // Re-render charts to update colors
+    if (document.getElementById('progress').classList.contains('active')) {
+         renderProgressCharts();
+    }
+}
+
+// --- DATA INITIALIZATION ---
+
+function initializeSampleData() {
+  // Add sample quiz results if none exist
+  if (appState.quizResults.length === 0) {
+    const sampleResults = [
+      { score: 16, total: 20, subject: 'History', timestamp: new Date(Date.now() - 5 * 24 * 3600 * 1000).toISOString(), timeTaken: 240 },
+      { score: 14, total: 20, subject: 'Geography', timestamp: new Date(Date.now() - 4 * 24 * 3600 * 1000).toISOString(), timeTaken: 280 },
+      { score: 18, total: 20, subject: 'Polity', timestamp: new Date(Date.now() - 3 * 24 * 3600 * 1000).toISOString(), timeTaken: 220 },
+      { score: 15, total: 20, subject: 'Economy', timestamp: new Date(Date.now() - 2 * 24 * 3600 * 1000).toISOString(), timeTaken: 260 },
+      { score: 17, total: 20, subject: 'History', timestamp: new Date(Date.now() - 1 * 24 * 3600 * 1000).toISOString(), timeTaken: 230 }
+    ];
+    appState.quizResults = sampleResults;
+  }
+
+  // Add sample study sessions
+  if (appState.studySessions.length === 0) {
+    const today = new Date();
+    appState.studySessions = [
+      { id: 1, date: new Date(today.getTime() + 86400000).toISOString().split('T')[0], subject: 'History', topic: 'Ancient India', duration: 60, completed: false },
+      { id: 2, date: new Date(today.getTime() + 172800000).toISOString().split('T')[0], subject: 'Polity', topic: 'Fundamental Rights', duration: 90, completed: false },
+      { id: 3, date: today.toISOString().split('T')[0], subject: 'Geography', topic: 'Rivers of India', duration: 45, completed: false },
+      { id: 4, date: new Date(today.getTime() - 86400000).toISOString().split('T')[0], subject: 'Economy', topic: 'Macroeconomics', duration: 120, completed: true }
+    ];
+  }
+
+  // Initialize flashcard progress
+  if (Object.keys(appState.flashcardProgress).length === 0) {
+    flashcardSets.forEach((set, index) => {
+      appState.flashcardProgress[index] = {
+        learned: [],
+        review: []
+      };
+    });
+    // Add some sample progress for the first set (Ancient History)
+    if (flashcardSets[0].cards.length > 0) {
+        appState.flashcardProgress[0].learned.push(0);
+        appState.flashcardProgress[0].review.push(1);
+    }
+  }
+
+  // Add sample forum posts
+  if (appState.forumPosts.length === 0) {
+    appState.forumPosts = [
+      {
+        id: 1,
+        subject: 'History',
+        title: 'Best way to study Ancient India?',
+        author: 'StudentUser',
+        timestamp: new Date('2025-11-06T10:30:00').toISOString(),
+        content: 'Can anyone suggest effective strategies for learning Ancient Indian History, especially the Mauryan and Gupta periods? I find the names and timelines difficult.',
+        replies: [
+          { author: 'Mentor1', content: 'Focus on timeline and key dynasties first, use flashcards for quick revision.', timestamp: new Date('2025-11-06T11:00:00').toISOString(), helpful: 5 },
+          { author: 'AspirantMP', content: 'Try drawing a Mind Map for each period. Visual aids help a lot!', timestamp: new Date('2025-11-06T12:00:00').toISOString(), helpful: 3 }
+        ]
+      },
+      {
+        id: 2,
+        subject: 'Polity',
+        title: 'Constitutional amendments confusion',
+        author: 'AspirantMP',
+        timestamp: new Date('2025-11-05T14:20:00').toISOString(),
+        content: 'How to remember important constitutional amendments? There are so many and they all seem equally important for Prelims.',
+        replies: [
+          { author: 'TopperMPPSC', content: 'Group them by topic (e.g., Fundamental Rights, Center-State relations) and make mnemonics.', timestamp: new Date('2025-11-05T15:00:00').toISOString(), helpful: 3 }
+        ]
+      },
+      {
+        id: 3,
+        subject: 'Geography',
+        title: 'MP Geography special focus areas?',
+        author: 'MPCandidate',
+        timestamp: new Date('2025-11-04T09:15:00').toISOString(),
+        content: 'What topics in MP Geography are most important for MPPSC? Specifically asking about rivers and climate zones.',
+        replies: []
+      }
+    ];
+  }
+  // We no longer set the 'userName' text here.
+  // Firebase's onAuthStateChanged will do it.
+}
+
+// --- NAVIGATION & UI RENDERING ---
+
+function navigateToSection(sectionId) {
+    // Hide sidebar on mobile after navigation
+    document.getElementById('sidebar').classList.remove('open');
+    
+    // Update active link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('data-section') === sectionId) {
+            link.classList.add('active');
+        }
+    });
+
+    // Show/Hide sections
+    document.querySelectorAll('.content-section').forEach(section => {
+        section.classList.remove('active');
+        if (section.id === sectionId) {
+            section.classList.add('active');
+        }
+    });
+
+    // Run specific load functions
+    if (sectionId === 'dashboard') loadDashboard();
+    if (sectionId === 'progress') loadProgress();
+    if (sectionId === 'planner') loadPlanner();
+    if (sectionId === 'flashcards') loadFlashcardSet(currentFlashcardSetIndex);
+    if (sectionId === 'forum') loadForumPosts();
+}
+
+function loadDashboard() {
+    // Calculate Stats
+    const totalTests = appState.quizResults.length;
+    const totalScore = appState.quizResults.reduce((sum, r) => sum + r.score, 0);
+    const totalMax = appState.quizResults.reduce((sum, r) => sum + r.total, 0);
+    const avgScore = totalMax > 0 ? ((totalScore / totalMax) * 100).toFixed(1) : 0;
+    const totalStudyMinutes = appState.studySessions.filter(s => s.completed).reduce((sum, s) => sum + s.duration, 0);
+    const totalStudyHours = (totalStudyMinutes / 60).toFixed(1);
+    const streak = calculateStudyStreak(appState.studySessions.filter(s => s.completed));
+
+    // Update UI
+    document.getElementById('totalTests').textContent = totalTests;
+    document.getElementById('avgScore').textContent = `${avgScore}%`;
+    document.getElementById('studyHours').textContent = `${totalStudyHours}h`;
+    document.getElementById('currentStreak').textContent = streak;
+    
+    // Load Recent Activity
+    const recentActivityList = document.getElementById('recentActivityList');
+    recentActivityList.innerHTML = '';
+    
+    const quizActivity = appState.quizResults
+        .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
+        .slice(0, 3)
+        .map(r => ({
+            type: 'Quiz',
+            text: `${r.subject} Quiz: ${r.score}/${r.total}`,
+            timestamp: r.timestamp
+        }));
+
+    const studyActivity = appState.studySessions
+        .filter(s => s.completed)
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, 3)
+        .map(s => ({
+            type: 'Study',
+            text: `${s.subject}: ${s.topic} (${s.duration} mins)`,
+            timestamp: s.date
+        }));
+
+    const recentActivities = [...quizActivity, ...studyActivity]
+        .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
+        .slice(0, 5); // Show top 5 recent activities
+
+    if (recentActivities.length === 0) {
+         recentActivityList.innerHTML = '<p class="status status--info">No recent activity. Start a quiz or plan a study session!</p>';
+    } else {
+        recentActivities.forEach(activity => {
+            const item = document.createElement('div');
+            item.className = 'activity-item card';
+            const date = new Date(activity.timestamp).toLocaleDateString();
+            item.innerHTML = `
+                <div>
+                    <strong>${activity.type}:</strong> ${activity.text}
+                </div>
+                <span>${date}</span>
+            `;
+            recentActivityList.appendChild(item);
+        });
+    }
+}
+
+// --- STUDY MATERIAL ---
+async function displayStudyMaterial(topic) {
+    const contentDiv = document.getElementById('topicContent');
+    
+    // 1. Show a loading message
+    contentDiv.innerHTML = '<p>Loading content from server...</p>';
+
+    try {
+        // 2. Fetch data from your backend API
+        const response = await fetch(`/api/study-material/${topic}`);
+        
+        // 3. Check for errors (like 404 Not Found)
+        if (!response.ok) {
+            const errorData = await response.json().catch(() => null);
+            const message = errorData ? errorData.error : "Topic data not found on server.";
+            throw new Error(message);
+        }
+        
+        // 4. Get the JSON data from the response
+        const data = await response.json();
+        
+        // 5. Display the fetched data in the HTML
+        let pdfHtml = '';
+        if (data.pdfUrl) {
+            // If a PDF exists, just show a nice big button
+            pdfHtml = `
+                <p>You have a PDF file saved for this topic.</p>
+                <a href="${data.pdfUrl}" target="_blank" class="btn btn--primary btn--lg">
+                    Open My PDF
+                </a>
+                <p style="font-size: 12px; color: #777; margin-top: 10px;">File: ${data.pdfUrl.replace('uploads/', '')}</p>
+            `;
+        } else {
+            pdfHtml = '<p class="status status--warning">No PDF has been uploaded for this topic yet.</p>';
+        }
+
+        // Display the data
+        const content = `
+            <h3>${data.title}</h3>
+            <p>${data.description}</p>
+            <hr>
+            ${pdfHtml}
+        `;
+        contentDiv.innerHTML = content;
+        
+    } catch (error) {
+        // 6. Show an error message if the fetch failed
+        console.error('Failed to fetch study material:', error);
+        contentDiv.innerHTML = `<p class="status status--error"><strong>Error:</strong> ${error.message}</p>`;
+    }
+}
+
+// --- QUIZ FUNCTIONS ---
+
+function startTest(subject) {
+    // Direct call from test-series
+    document.getElementById('subjectSelect').value = subject;
+    document.getElementById('questionCount').value = '20';
+    navigateToSection('mcq-bank');
+    startQuiz();
+}
+
+function startQuiz() {
+    const subject = document.getElementById('subjectSelect').value;
+    const count = parseInt(document.getElementById('questionCount').value);
+
+    let filteredQuestions = quizQuestions;
+    if (subject !== 'all') {
+        filteredQuestions = quizQuestions.filter(q => q.subject === subject);
+    }
+
+    // Shuffle and slice
+    currentQuiz.questions = shuffleArray(filteredQuestions).slice(0, count);
+    currentQuiz.currentIndex = 0;
+    currentQuiz.answers = Array(currentQuiz.questions.length).fill(null);
+    currentQuiz.startTime = Date.now();
+    currentQuiz.timeLimit = 5 * 60; // Hardcode 5 minutes for demo quiz
+
+    document.getElementById('quizStart').style.display = 'none';
+    document.getElementById('quizActive').style.display = 'block';
+    document.getElementById('quizResults').style.display = 'none';
+
+    clearInterval(currentQuiz.timerInterval);
+    currentQuiz.timerInterval = setInterval(updateQuizTimer, 1000);
+
+    renderQuestion();
+}
+
+function updateQuizTimer() {
+    const timeElapsed = Math.floor((Date.now() - currentQuiz.startTime) / 1000);
+    const timeLeft = currentQuiz.timeLimit - timeElapsed;
+
+    if (timeLeft <= 0) {
+        clearInterval(currentQuiz.timerInterval);
+        currentQuiz.timeLimit = currentQuiz.timeLimit; // Set final time
+        finishQuiz();
+        return;
+    }
+
+    document.getElementById('quizTimer').textContent = `⏱️ ${formatTime(timeLeft)}`;
+}
+
+function renderQuestion() {
+    const q = currentQuiz.questions[currentQuiz.currentIndex];
+    const qIndex = currentQuiz.currentIndex + 1;
+    const total = currentQuiz.questions.length;
+
+    document.getElementById('questionCounter').textContent = `Question ${qIndex} of ${total}`;
+    document.getElementById('progressFill').style.width = `${(qIndex / total) * 100}%`;
+    document.getElementById('questionText').textContent = q.question;
+    document.getElementById('feedback').style.display = 'none';
+
+    const optionsContainer = document.getElementById('optionsContainer');
+    optionsContainer.innerHTML = '';
+    
+    const optionLabels = {a: 'A', b: 'B', c: 'C', d: 'D'};
+    
+    Object.entries(q.options).forEach(([key, value]) => {
+        const button = document.createElement('button');
+        button.className = 'option-btn';
+        button.setAttribute('data-option', key);
+        button.textContent = `${optionLabels[key]}. ${value}`;
+        button.onclick = () => selectAnswer(key);
+        
+        // Highlight previously selected answer
+        if (currentQuiz.answers[currentQuiz.currentIndex] === key) {
+            button.classList.add('selected');
+        }
+        
+        optionsContainer.appendChild(button);
+    });
+
+    // Update navigation buttons
+    document.getElementById('prevBtn').disabled = currentQuiz.currentIndex === 0;
+    const nextBtn = document.getElementById('nextBtn');
+    if (currentQuiz.currentIndex === total - 1) {
+        nextBtn.textContent = 'Finish Quiz';
+        nextBtn.onclick = finishQuiz;
+        nextBtn.disabled = false;
+    } else {
+        nextBtn.textContent = 'Next Question';
+        nextBtn.onclick = nextQuestion;
+        nextBtn.disabled = currentQuiz.answers[currentQuiz.currentIndex] === null;
+    }
+}
+
+function selectAnswer(selectedOption) {
+    // Ignore if already answered
+    if (currentQuiz.answers[currentQuiz.currentIndex] === selectedOption) return;
+
+    // Clear previous selection highlight
+    document.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
+
+    // Set the new answer and highlight the button
+    currentQuiz.answers[currentQuiz.currentIndex] = selectedOption;
+    document.querySelector(`.option-btn[data-option="${selectedOption}"]`).classList.add('selected');
+
+    // Enable next button
+    const nextBtn = document.getElementById('nextBtn');
+    nextBtn.disabled = false;
+}
+
+function nextQuestion() {
+    if (currentQuiz.currentIndex < currentQuiz.questions.length - 1) {
+        currentQuiz.currentIndex++;
+        renderQuestion();
+    }
+}
+
+function prevQuestion() {
+    if (currentQuiz.currentIndex > 0) {
+        currentQuiz.currentIndex--;
+        renderQuestion();
+    }
+}
+
+function finishQuiz() {
+    clearInterval(currentQuiz.timerInterval);
+    const endTime = Date.now();
+    const totalTimeTaken = Math.floor((endTime - currentQuiz.startTime) / 1000);
+
+    let correctCount = 0;
+    currentQuiz.questions.forEach((q, index) => {
+        if (currentQuiz.answers[index] === q.correct_answer) {
+            correctCount++;
+        }
+    });
+
+    const totalQuestions = currentQuiz.questions.length;
+    const percentage = ((correctCount / totalQuestions) * 100).toFixed(1);
+
+    // Save result to appState
+    const newResult = {
+        score: correctCount,
+        total: totalQuestions,
+        subject: document.getElementById('subjectSelect').value === 'all' ? 'Mixed' : document.getElementById('subjectSelect').value,
+        timestamp: new Date().toISOString(),
+        timeTaken: totalTimeTaken
+    };
+    appState.quizResults.push(newResult);
+
+    // Update results display
+    document.getElementById('finalScore').textContent = `${correctCount}/${totalQuestions}`;
+    document.getElementById('finalPercentage').textContent = `${percentage}%`;
+    document.getElementById('correctCount').textContent = correctCount;
+    document.getElementById('incorrectCount').textContent = totalQuestions - correctCount;
+    document.getElementById('timeTaken').textContent = formatTime(totalTimeTaken);
+
+    // Show results section
+    document.getElementById('quizActive').style.display = 'none';
+    document.getElementById('quizResults').style.display = 'block';
+}
+
+function restartQuiz() {
+    document.getElementById('quizStart').style.display = 'block';
+    document.getElementById('quizActive').style.display = 'none';
+    document.getElementById('quizResults').style.display = 'none';
+    // Reset state
+    currentQuiz.questions = [];
+    currentQuiz.currentIndex = 0;
+    currentQuiz.answers = [];
+}
+
+// --- PROGRESS FUNCTIONS ---
+
+function loadProgress() {
+    updateProgressStats();
+    renderProgressCharts();
+    renderWeakAreas();
+}
+
+function updateProgressStats() {
+    const totalTests = appState.quizResults.length;
+    const totalScore = appState.quizResults.reduce((sum, r) => sum + r.score, 0);
+    const totalMax = appState.quizResults.reduce((sum, r) => sum + r.total, 0);
+    const avgScore = totalMax > 0 ? ((totalScore / totalMax) * 100).toFixed(1) : 0;
+    const totalStudyMinutes = appState.studySessions.filter(s => s.completed).reduce((sum, s) => sum + s.duration, 0);
+    const totalStudyHours = (totalStudyMinutes / 60).toFixed(1);
+    const streak = calculateStudyStreak(appState.studySessions.filter(s => s.completed));
+
+    document.getElementById('progressTotalTests').textContent = totalTests;
+    document.getElementById('progressAvgScore').textContent = `${avgScore}%`;
+    document.getElementById('progressStudyHours').textContent = `${totalStudyHours}h`;
+    document.getElementById('progressStreak').textContent = streak;
+}
+
+function renderProgressCharts() {
+    const colors = getChartColors();
+    
+    // 1. Score Trend Chart (Line Chart)
+    const trendData = appState.quizResults.map((r, i) => ({
+        x: new Date(r.timestamp).toLocaleDateString(),
+        y: (r.score / r.total) * 100
+    }));
+
+    if (scoreTrendChartInstance) scoreTrendChartInstance.destroy();
+    scoreTrendChartInstance = new Chart(document.getElementById('scoreTrendChart').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: trendData.map(d => d.x),
+            datasets: [{
+                label: 'Score Percentage (%)',
+                data: trendData.map(d => d.y),
+                borderColor: colors.primary,
+                backgroundColor: colors.primary + '33', // 20% opacity
+                tension: 0.1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    title: { display: true, text: 'Score (%)', color: colors.text },
+                    ticks: { color: colors.text }
+                },
+                x: {
+                    title: { display: true, text: 'Test Taken', color: colors.text },
+                    ticks: { color: colors.text }
+                }
+            },
+            plugins: { legend: { labels: { color: colors.text } } }
+        }
+    });
+
+    // 2. Subject-wise Average Scores (Bar Chart)
+    const subjectScores = appState.quizResults.reduce((acc, r) => {
+        acc[r.subject] = acc[r.subject] || { totalScore: 0, totalMax: 0, count: 0 };
+        acc[r.subject].totalScore += r.score;
+        acc[r.subject].totalMax += r.total;
+        acc[r.subject].count++;
+        return acc;
+    }, {});
+
+    const subjectLabels = Object.keys(subjectScores);
+    const subjectAverages = subjectLabels.map(subject => 
+        (subjectScores[subject].totalScore / subjectScores[subject].totalMax) * 100
+    );
+    
+    // Assign colors dynamically
+    const chartColors = [colors.bg1, colors.bg2, colors.bg3, colors.bg4, colors.primary, colors.secondary];
+    const backgroundColors = subjectLabels.map((_, i) => chartColors[i % chartColors.length]);
+    const borderColors = backgroundColors.map(color => color.replace(/0\.08/g, '1').replace(/0\.15/g, '1')); // Attempt to get solid color from bg
+
+    if (subjectScoresChartInstance) subjectScoresChartInstance.destroy();
+    subjectScoresChartInstance = new Chart(document.getElementById('subjectScoresChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: subjectLabels,
+            datasets: [{
+                label: 'Average Score (%)',
+                data: subjectAverages,
+                backgroundColor: backgroundColors,
+                borderColor: borderColors,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    title: { display: true, text: 'Score (%)', color: colors.text },
+                    ticks: { color: colors.text }
+                },
+                x: {
+                    ticks: { color: colors.text }
+                }
+            },
+            plugins: { legend: { display: false } }
+        }
+    });
+
+    // 3. Performance Distribution (Doughnut Chart - based on total correct/incorrect)
+    const totalCorrect = appState.quizResults.reduce((sum, r) => sum + r.score, 0);
+    const totalIncorrect = appState.quizResults.reduce((sum, r) => sum + (r.total - r.score), 0);
+    const totalUnanswered = 0; // Assuming all attempted for now
+
+    if (performanceDistChartInstance) performanceDistChartInstance.destroy();
+    performanceDistChartInstance = new Chart(document.getElementById('performanceDistChart').getContext('2d'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Correct', 'Incorrect', 'Unanswered/Skipped'],
+            datasets: [{
+                data: [totalCorrect, totalIncorrect, totalUnanswered],
+                backgroundColor: [colors.success, colors.error, colors.secondary],
+                borderColor: colors.surface,
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: { legend: { position: 'bottom', labels: { color: colors.text } } }
+        }
+    });
+
+    // 4. Weekly Study Hours (Bar Chart)
+    const studyData = getWeeklyStudyData();
+    
+    if (weeklyStudyChartInstance) weeklyStudyChartInstance.destroy();
+    weeklyStudyChartInstance = new Chart(document.getElementById('weeklyStudyChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: studyData.labels,
+            datasets: [{
+                label: 'Study Hours',
+                data: studyData.data,
+                backgroundColor: colors.primary,
+                borderColor: colors.primary,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: { display: true, text: 'Hours Studied', color: colors.text },
+                    ticks: { color: colors.text }
+                },
+                x: {
+                    ticks: { color: colors.text }
+                }
+            },
+            plugins: { legend: { display: false } }
+        }
+    });
+}
+
+function getWeeklyStudyData() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    const studyHoursMap = {};
+    const labels = [];
+    const data = [];
+    
+    // Initialize the last 7 days
+    for (let i = 6; i >= 0; i--) {
+        const date = new Date(today.getTime() - i * 24 * 60 * 60 * 1000);
+        const dateStr = date.toISOString().split('T')[0];
+        const dayLabel = date.toLocaleDateString('en-US', { weekday: 'short' });
+        studyHoursMap[dateStr] = { label: dayLabel, minutes: 0 };
+    }
+    
+    // Populate with actual data
+    appState.studySessions
+        .filter(s => s.completed)
+        .forEach(session => {
+            const sessionDate = session.date;
+            if (studyHoursMap[sessionDate]) {
+                studyHoursMap[sessionDate].minutes += session.duration;
+            }
+        });
+    
+    // Convert to arrays for chart.js
+    Object.values(studyHoursMap).forEach(item => {
+        labels.push(item.label);
+        data.push((item.minutes / 60).toFixed(1)); // Convert minutes to hours
+    });
+    
+    return { labels, data };
+}
+
+function renderWeakAreas() {
+    const weakAreasList = document.getElementById('weakAreasList');
+    weakAreasList.innerHTML = '';
+    
+    const subjectScores = appState.quizResults.reduce((acc, r) => {
+        acc[r.subject] = acc[r.subject] || { totalScore: 0, totalMax: 0, count: 0 };
+        acc[r.subject].totalScore += r.score;
+        acc[r.subject].totalMax += r.total;
+        acc[r.subject].count++;
+        return acc;
+    }, {});
+
+    const subjectAverages = Object.entries(subjectScores).map(([subject, data]) => ({
+        subject,
+        average: (data.totalScore / data.totalMax) * 100
+    }));
+
+    const weakestAreas = subjectAverages
+        .filter(a => subjectScores[a.subject].count >= 2) 
+        .sort((a, b) => a.average - b.average)
+        .slice(0, 3); // Top 3 weakest areas
+
+    if (weakestAreas.length === 0) {
+        weakAreasList.innerHTML = '<p class="status status--info">Need more tests to determine weak areas!</p>';
+    } else {
+        weakestAreas.forEach(area => {
+            const item = document.createElement('div');
+            item.className = 'session-item';
+            item.innerHTML = `
+                <div class="session-info">
+                    <strong>${area.subject}</strong>
+                    <div class="session-details">Average Score: ${area.average.toFixed(1)}%</div>
+                </div>
+                <span class="status status--error">Low Score</span>
+            `;
+            weakAreasList.appendChild(item);
+        });
+    }
+}
+
+// --- PLANNER FUNCTIONS ---
+
+function loadPlanner() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const oneWeekLater = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
+
+    // Filter and sort upcoming sessions
+    const upcoming = appState.studySessions
+        .filter(s => new Date(s.date) >= today && new Date(s.date) <= oneWeekLater)
+        .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+    const upcomingContainer = document.getElementById('upcomingSessions');
+    upcomingContainer.innerHTML = '';
+    
+    if (upcoming.length === 0) {
+         upcomingContainer.innerHTML = '<p class="status status--info">No upcoming sessions planned. Add one now!</p>';
+    } else {
+        upcoming.forEach(session => {
+            const item = document.createElement('div');
+            item.className = 'session-item';
+            const sessionDate = new Date(session.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', weekday: 'short' });
+            item.innerHTML = `
+                <div class="session-info">
+                    <strong>${session.subject}: ${session.topic}</strong>
+                    <div class="session-details">${sessionDate} | ${session.duration} minutes</div>
+                </div>
+                <div class="session-actions">
+                    <button class="btn btn--sm btn--outline" onclick="deleteSession(${session.id})">Del</button>
+                </div>
+            `;
+            upcomingContainer.appendChild(item);
+        });
+    }
+    
+    // Load today's targets
+    const todayStr = today.toISOString().split('T')[0];
+    const todayTargets = appState.studySessions.filter(s => s.date === todayStr);
+    const dailyTargetsContainer = document.getElementById('dailyTargets');
+    dailyTargetsContainer.innerHTML = '';
+    
+    let completedMinutes = 0;
+    let totalMinutes = 0;
+
+    if (todayTargets.length === 0) {
+         dailyTargetsContainer.innerHTML = '<p class="status status--info">No targets set for today.</p>';
+    } else {
+        todayTargets.forEach(session => {
+            totalMinutes += session.duration;
+            if (session.completed) completedMinutes += session.duration;
+
+            const item = document.createElement('div');
+            item.className = 'session-item';
+            item.innerHTML = `
+                <div class="session-info">
+                    <strong>${session.subject}: ${session.topic}</strong>
+                    <div class="session-details">${session.duration} minutes</div>
+                </div>
+                <div class="session-actions">
+                    <input type="checkbox" ${session.completed ? 'checked' : ''} onchange="toggleSessionCompletion(${session.id}, this.checked)">
+                </div>
+            `;
+            dailyTargetsContainer.appendChild(item);
+        });
+    }
+    
+    // Update daily progress
+    const progress = totalMinutes > 0 ? ((completedMinutes / totalMinutes) * 100).toFixed(0) : 0;
+    document.getElementById('dailyProgress').style.width = `${progress}%`;
+    document.getElementById('dailyProgressText').textContent = `${progress}% (${completedMinutes}/${totalMinutes} min)`;
+
+    // Set default date in modal
+    document.getElementById('sessionDate').value = todayStr;
+}
+
+function showAddSessionModal() {
+    document.getElementById('addSessionModal').style.display = 'flex';
+}
+
+function closeAddSessionModal() {
+    document.getElementById('addSessionModal').style.display = 'none';
+    document.getElementById('addSessionForm').reset();
+}
+
+function handleAddSession(e) {
+    e.preventDefault();
+    const date = document.getElementById('sessionDate').value;
+    const subject = document.getElementById('sessionSubject').value;
+    const topic = document.getElementById('sessionTopic').value;
+    const duration = parseInt(document.getElementById('sessionDuration').value);
+
+    if (date && subject && topic && duration > 0) {
+        const newId = appState.studySessions.length > 0 ? Math.max(...appState.studySessions.map(s => s.id)) + 1 : 1;
+        appState.studySessions.push({
+            id: newId,
+            date,
+            subject,
+            topic,
+            duration,
+            completed: false
+        });
+        closeAddSessionModal();
+        loadPlanner();
+    } else {
+        alert('Please fill out all fields correctly.');
+    }
+}
+
+function toggleSessionCompletion(id, completed) {
+    const session = appState.studySessions.find(s => s.id === id);
+    if (session) {
+        session.completed = completed;
+        loadPlanner();
+    }
+}
+
+function deleteSession(id) {
+    appState.studySessions = appState.studySessions.filter(s => s.id !== id);
+    loadPlanner();
+}
+
+// --- FLASHCARD FUNCTIONS ---
+
+function populateFlashcardSetSelect() {
+    const select = document.getElementById('flashcardSetSelect');
+    select.innerHTML = '';
+    flashcardSets.forEach((set, index) => {
+        const option = document.createElement('option');
+        option.value = index;
+        option.textContent = set.name;
+        select.appendChild(option);
+    });
+}
+
+function loadFlashcardSet(setIndex = 0) {
+    currentFlashcardSetIndex = parseInt(setIndex);
+    currentCardIndex = 0;
+    isFlipped = false;
+    document.getElementById('flashcardWrapper').classList.remove('flipped');
+    
+    // Update the select box if the call didn't come from its onchange
+    document.getElementById('flashcardSetSelect').value = currentFlashcardSetIndex;
+
+    renderFlashcard();
+    renderFlashcardProgress();
+    
+    document.getElementById('flashcardControls').style.display = 'flex';
+}
+
+function renderFlashcard() {
+    const set = flashcardSets[currentFlashcardSetIndex];
+    if (!set || set.cards.length === 0) {
+        document.getElementById('flashcardFront').textContent = 'No cards in this set.';
+        document.getElementById('flashcardBack').textContent = 'No answer.';
+        document.getElementById('flashcardStatus').textContent = '0 of 0 cards loaded.';
+        document.getElementById('flashcardControls').style.display = 'none';
+        return;
+    }
+
+    const card = set.cards[currentCardIndex];
+    const total = set.cards.length;
+
+    document.getElementById('flashcardFront').textContent = `Question: ${card.q}`;
+    document.getElementById('flashcardBack').textContent = `Answer: ${card.a}`;
+    document.getElementById('flashcardStatus').textContent = `Card ${currentCardIndex + 1} of ${total}`;
+    document.getElementById('prevBtn').disabled = currentCardIndex === 0;
+    document.getElementById('nextBtn').textContent = currentCardIndex === total - 1 ? 'Start Over' : 'Next \u2192';
+
+    // Mark button statuses based on current card's progress
+    const progress = appState.flashcardProgress[currentFlashcardSetIndex];
+    const cardId = currentCardIndex;
+
+    const markLearnedBtn = document.querySelector('[onclick="markCard(\'learned\')"]');
+    const needsReviewBtn = document.querySelector('[onclick="markCard(\'review\')"]');
+
+    markLearnedBtn.disabled = progress.learned.includes(cardId);
+    needsReviewBtn.disabled = progress.review.includes(cardId);
+    
+    // Re-flip back to front if needed
+    if (isFlipped) flipCard(); 
+}
+
+function flipCard() {
+    const cardWrapper = document.getElementById('flashcardWrapper');
+    cardWrapper.classList.toggle('flipped');
+    isFlipped = cardWrapper.classList.contains('flipped');
+}
+
+function nextCard() {
+    const set = flashcardSets[currentFlashcardSetIndex];
+    if (currentCardIndex < set.cards.length - 1) {
+        currentCardIndex++;
+    } else {
+        currentCardIndex = 0; // Loop back to start
+    }
+    renderFlashcard();
+}
+
+function prevCard() {
+    if (currentCardIndex > 0) {
+        currentCardIndex--;
+    } else {
+        // Optional: loop to end
+        currentCardIndex = flashcardSets[currentFlashcardSetIndex].cards.length - 1;
+    }
+    renderFlashcard();
+}
+
+function markCard(status) {
+    const progress = appState.flashcardProgress[currentFlashcardSetIndex];
+    const cardId = currentCardIndex;
+
+    // Remove from both lists first
+    progress.learned = progress.learned.filter(id => id !== cardId);
+    progress.review = progress.review.filter(id => id !== cardId);
+
+    // Add to the selected list
+    if (status === 'learned') {
+        progress.learned.push(cardId);
+    } else if (status === 'review') {
+        progress.review.push(cardId);
+    }
+    
+    // Ensure unique IDs and sort
+    progress.learned = [...new Set(progress.learned)].sort((a,b) => a-b);
+    progress.review = [...new Set(progress.review)].sort((a,b) => a-b);
+
+    renderFlashcardProgress();
+    renderFlashcard(); // Re-render to update button state
+}
+
+function renderFlashcardProgress() {
+    const set = flashcardSets[currentFlashcardSetIndex];
+    if (!set || set.cards.length === 0) return;
+    
+    const total = set.cards.length;
+    const progress = appState.flashcardProgress[currentFlashcardSetIndex];
+    
+    const learnedCount = progress.learned.length;
+    const reviewCount = progress.review.length;
+    const newCount = total - learnedCount - reviewCount;
+    
+    const learnedPct = (learnedCount / total) * 100;
+    const reviewPct = (reviewCount / total) * 100;
+    const newPct = (newCount / total) * 100;
+    
+    document.getElementById('flashcard-progress-learned').style.width = `${learnedPct}%`;
+    document.getElementById('flashcard-progress-review').style.width = `${reviewPct}%`;
+    document.getElementById('flashcard-progress-new').style.width = `${newPct}%`;
+    
+    document.getElementById('flashcardStatus').textContent = `Learned: ${learnedCount} | Review: ${reviewCount} | New: ${newCount} | Total: ${total}`;
+}
+
+// --- FORUM FUNCTIONS ---
+let currentViewingPost = null;
+
+function loadForumPosts() {
+    document.getElementById('forumList').style.display = 'block';
+    document.getElementById('postDetail').style.display = 'none';
+    
+    const postsContainer = document.getElementById('postsContainer');
+    postsContainer.innerHTML = '';
+
+    if (appState.forumPosts.length === 0) {
+         postsContainer.innerHTML = '<p class="status status--info">No posts yet. Be the first to start a discussion!</p>';
+         return;
+    }
+
+    // Sort by latest post/reply timestamp
+    const sortedPosts = appState.forumPosts.sort((a, b) => {
+        const aTime = new Date(a.replies.length > 0 ? a.replies[a.replies.length - 1].timestamp : a.timestamp);
+        const bTime = new Date(b.replies.length > 0 ? b.replies[b.replies.length - 1].timestamp : b.timestamp);
+        return bTime - aTime;
+    });
+
+    sortedPosts.forEach(post => {
+        const postElement = document.createElement('div');
+        postElement.className = 'post-card card';
+        postElement.onclick = () => showPostDetail(post.id);
+        
+        const latestReply = post.replies.length > 0 ? post.replies[post.replies.length - 1] : null;
+        const lastActivity = latestReply ? `Last reply by ${latestReply.author} ${timeAgo(latestReply.timestamp)}` : `Posted by ${post.author} ${timeAgo(post.timestamp)}`;
+        
+        postElement.innerHTML = `
+            <div class="card__body">
+                <h4>${post.title}</h4>
+                <div class="post-meta">
+                    <div>
+                        <span class="post-subject">${post.subject}</span>
+                        <span> • ${post.replies.length} Replies</span>
+                    </div>
+                    <span>${lastActivity}</span>
+                </div>
+            </div>
+        `;
+        postsContainer.appendChild(postElement);
+    });
+}
+
+function timeAgo(timestamp) {
+    const seconds = Math.floor((new Date() - new Date(timestamp)) / 1000);
+    if (seconds < 60) return `${seconds} seconds ago`;
+    const minutes = Math.floor(seconds / 60);
+    if (minutes < 60) return `${minutes} minutes ago`;
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) return `${hours} hours ago`;
+    const days = Math.floor(hours / 24);
+    return `${days} days ago`;
+}
+
+function showPostDetail(postId) {
+    currentViewingPost = appState.forumPosts.find(p => p.id === postId);
+    if (!currentViewingPost) return;
+
+    document.getElementById('forumList').style.display = 'none';
+    document.getElementById('postDetail').style.display = 'block';
+
+    document.getElementById('detailTitle').textContent = currentViewingPost.title;
+    document.getElementById('detailAuthor').textContent = `Posted by: ${currentViewingPost.author}`;
+    document.getElementById('detailTimestamp').textContent = `on ${new Date(currentViewingPost.timestamp).toLocaleDateString()} ${new Date(currentViewingPost.timestamp).toLocaleTimeString()}`;
+    document.getElementById('detailContent').textContent = currentViewingPost.content;
+    document.getElementById('replyCount').textContent = currentViewingPost.replies.length;
+    
+    renderReplies();
+}
+
+function hidePostDetail() {
+    currentViewingPost = null;
+    document.getElementById('forumList').style.display = 'block';
+    document.getElementById('postDetail').style.display = 'none';
+    loadForumPosts(); // Reload to refresh list order
+}
+
+function renderReplies() {
+    const repliesContainer = document.getElementById('repliesContainer');
+    repliesContainer.innerHTML = '';
+    
+    currentViewingPost.replies.forEach(reply => {
+        const replyElement = document.createElement('div');
+        replyElement.className = 'reply-item';
+        
+        replyElement.innerHTML = `
+            <div class="reply-meta">
+                <span><strong>${reply.author}</strong></span>
+                <span>${timeAgo(reply.timestamp)}</span>
+            </div>
+            <p>${reply.content}</p>
+        `;
+        repliesContainer.appendChild(replyElement);
+    });
+}
+
+function showCreatePostModal() {
+    document.getElementById('createPostModal').style.display = 'flex';
+}
+
+function closeCreatePostModal() {
+    document.getElementById('createPostModal').style.display = 'none';
+    document.getElementById('createPostForm').reset();
+}
+
+function handleCreatePost(e) {
+    e.preventDefault();
+    const subject = document.getElementById('postSubject').value;
+    const title = document.getElementById('postTitle').value;
+    const content = document.getElementById('postContent').value;
+    
+    const newId = appState.forumPosts.length > 0 ? Math.max(...appState.forumPosts.map(p => p.id)) + 1 : 1;
+    
+    appState.forumPosts.push({
+        id: newId,
+        subject,
+        title,
+        author: appState.currentUser,
+        timestamp: new Date().toISOString(),
+        content,
+        replies: []
+    });
+    
+    closeCreatePostModal();
+    loadForumPosts();
+    alert('Post created successfully!');
+}
+
+function handleAddReply(e) {
+    e.preventDefault();
+    const content = document.getElementById('replyContent').value;
+    
+    if (currentViewingPost && content) {
+        currentViewingPost.replies.push({
+            author: appState.currentUser,
+            content,
+            timestamp: new Date().toISOString(),
+            helpful: 0
+        });
+        
+        document.getElementById('replyContent').value = '';
+        document.getElementById('replyCount').textContent = currentViewingPost.replies.length;
+        renderReplies();
+    }
+}
+
+// --- NEW PDF UPLOAD FUNCTION ---
+async function handlePdfUpload(e) {
+    e.preventDefault(); // Stop the form from reloading the page
+    
+    const topic = document.getElementById('topicSelect').value;
+    const fileInput = document.getElementById('fileInput');
+    const statusDiv = document.getElementById('uploadStatus');
+    
+    if (fileInput.files.length === 0) {
+        statusDiv.innerHTML = '<p class="status status--error">Please select a file to upload.</p>';
+        return;
+    }
+    
+    const file = fileInput.files[0];
+    
+    // We use FormData to send files
+    const formData = new FormData();
+    formData.append('topic', topic);
+    formData.append('pdfFile', file);
+    
+    statusDiv.innerHTML = '<p class="status status--info">Uploading, please wait...</p>';
+    
+    try {
+        const response = await fetch('/api/upload', {
+            method: 'POST',
+            body: formData 
+            // No 'Content-Type' header; browser sets it for FormData
+        });
+        
+        const result = await response.json();
+        
+        if (!response.ok) {
+            throw new Error(result.message || 'Upload failed');
+        }
+        
+        statusDiv.innerHTML = `<p class="status status--success">${result.message}</p>`;
+        
+        // Refresh the content view to show the new PDF
+        displayStudyMaterial(topic);
+        
+    } catch (error) {
+        console.error('Upload Error:', error);
+        statusDiv.innerHTML = `<p class="status status--error">Error: ${error.message}</p>`;
+    }
+}
+
+// --- NEW AUTHENTICATION FUNCTIONS ---
+
+// 1. Function to Sign In
+function signInWithGoogle() {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  auth.signInWithPopup(provider)
+    .then((result) => {
+      console.log("Signed in successfully!", result.user);
+    })
+    .catch((error) => {
+      console.error("Error signing in:", error.message);
+    });
+}
+
+// 2. Function to Sign Out
+function signOutUser() {
+  auth.signOut()
+    .then(() => {
+      console.log("Signed out successfully.");
+    })
+    .catch((error) => {
+      console.error("Error signing out:", error.message);
+    });
+}
+
+// 3. Listener to check if user is logged in or out
+// This is the most important function!
+auth.onAuthStateChanged((user) => {
+  const authContainer = document.getElementById('authContainer');
+  // Also find the old span for compatibility
+  const userNameSpan = document.getElementById('userName'); 
+  
+  if (user) {
+    // User is signed in!
+    console.log("User is logged in:", user.displayName);
+    appState.currentUser = user.displayName; // Update state
+    authContainer.innerHTML = `
+      <span style="margin-right: 10px; font-weight: 500;">Hi, ${user.displayName.split(' ')[0]}!</span>
+      <img src="${user.photoURL}" alt="Profile" style="width: 32px; height: 32px; border-radius: 50%;">
+      <button class="btn btn--secondary btn--sm" id="logoutBtn" style="margin-left: 10px;">Sign Out</button>
+    `;
+    // Update the old span as well
+    if (userNameSpan) userNameSpan.textContent = user.displayName;
+    
+  } else {
+    // User is signed out
+    console.log("User is signed out.");
+    appState.currentUser = 'Student'; // Reset state
+    authContainer.innerHTML = `
+      <button class="btn btn--primary btn--sm" id="loginBtn">Login with Google</button>
+    `;
+    // Update the old span as well
+    if (userNameSpan) userNameSpan.textContent = 'Student';
+  }
+});
+
+</script>
+
+</body>
+</html>
+
+0
+0
+0

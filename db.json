@@ -1,0 +1,12 @@
+{
+  "ancient-history": {
+    "title": "Ancient History",
+    "description": "Default notes.",
+    "pdfUrl": "uploads/ancient-history-à¤à¥à¤²à¤¾à¤® à¤µà¤à¤¶-1.pdf"
+  },
+  "modern-history": {
+    "title": "Modern History",
+    "description": "Default notes.",
+    "pdfUrl": null
+  }
+}
