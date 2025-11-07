@@ -1,32 +1,29 @@
+// server.js
+
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
 const multer = require('multer');
-const admin = require('firebase-admin'); // <-- NEW
-const cloudinary = require('cloudinary').v2; // <-- NEW
-const fs = require('fs'); // <-- NEW
+const admin = require('firebase-admin');
+const cloudinary = require('cloudinary').v2;
+const fs = require('fs');
+const path = require('path');
+require('dotenv').config(); // Make sure .env is loaded
 
 const app = express();
 
-// --- 1. INITIALIZE SERVICES ---
+// ---- INITIALIZE SERVICES ----
 
 // Base64-decode the service account key from the environment variable
-// This is the secure way to do it on Render
 const serviceAccountBase64 = process.env.FIREBASE_SERVICE_ACCOUNT_BASE64;
-let serviceAccount;
+let serviceAccount = null;
 
 if (serviceAccountBase64) {
-  // We are on Render (Production)
-  const decodedKey = Buffer.from(serviceAccountBase64, 'base64').toString('ascii');
+  const decodedKey = Buffer.from(serviceAccountBase64, 'base64').toString('utf8');
   serviceAccount = JSON.parse(decodedKey);
+} else if (fs.existsSync('./serviceAccountKey.json')) {
+  serviceAccount = require('./serviceAccountKey.json');
 } else {
-  // We are on Termux (Development)
-  // Check if the key file exists before trying to require it
-  if (fs.existsSync('./serviceAccountKey.json')) {
-    serviceAccount = require('./serviceAccountKey.json');
-  } else {
-    console.warn("WARNING: serviceAccountKey.json not found. Firebase Admin SDK not initialized for local dev.");
-  }
+  console.warn('WARNING: serviceAccountKey.json not found. Firebase Admin will not initialize.');
 }
 
 // Initialize Firebase Admin only if we have a service account
@@ -36,22 +33,27 @@ if (serviceAccount) {
   });
 }
 
-// Initialize Cloudinary (using Render's environment variables)
+// Initialize Cloudinary (using environment variables)
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
-  secure: true
+  secure: true,
 });
 
-// Initialize Firestore Database (only if admin was initialized)
-const db = admin.firestore ? admin.firestore() : null;
-const FieldValue = admin.firestore ? admin.firestore.FieldValue : null; // <-- ADD THIS LINE
+// Initialize Firestore Database (only if Admin was initialized)
+let db = null;
+let FieldValue = null;
+if (admin.apps.length) {
+  db = admin.firestore();
+  FieldValue = admin.firestore.FieldValue;
+}
 
 // Configure Multer to use memory storage (no disk)
-const upload = multer({ 
+const upload = multer({
   storage: multer.memoryStorage(),
   fileFilter: (req, file, cb) => {
+    // Accept only PDF files
     if (file.mimetype === 'application/pdf') {
       cb(null, true);
     } else {
@@ -60,100 +62,37 @@ const upload = multer({
   }
 });
 
-// --- 2. MIDDLEWARE ---
+// ---- MIDDLEWARE ----
+
 app.use(cors());
+app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
-// We no longer need a static '/uploads' folder, as files are in the cloud
 
-// --- 3. API ROUTES (REBUILT FOR FIRESTORE & CLOUDINARY) ---
+// ---- ROUTES (example) ----
 
-// GET route (reads from Firestore)
-app.get('/api/study-material/:topic', async (req, res) => {
-  if (!db) return res.status(500).json({ error: "Database not initialized." });
-  
-try {
-  // This is the new logic to add to an array
-  const docRef = db.collection('materials').doc(topic);
-
-  // Create a new object for our array
-  const newPdfEntry = {
-      url: pdfUrl,
-      fileName: file.originalname,
-      uploadedAt: new Date().toISOString()
-  };
-
-  // Atomically add this new object to the 'uploads' array
-  // If 'uploads' doesn't exist, it will be created.
-  await docRef.update({
-      uploads: FieldValue.arrayUnion(newPdfEntry)
-  });
-
-  res.json({
-    message: 'File added to list successfully!',
-    pdfUrl: pdfUrl // We send back the URL just for confirmation
-  });
-
-} catch (dbError) {
-  console.error("Firestore update error:", dbError);
-  return res.status(500).json({ message: "Database update failed" });
-}
-
-// POST route (uploads to Cloudinary, then updates Firestore)
-app.post('/api/upload', upload.single('pdfFile'), (req, res) => {
-  if (!db) return res.status(500).json({ error: "Database not initialized." });
-  const topic = req.body.topic;
-  const file = req.file;
-
-  if (!file) {
-    return res.status(400).json({ message: 'No file uploaded.' });
+// Example upload route
+app.post('/upload', upload.single('file'), async (req, res) => {
+  if (!req.file) {
+    return res.status(400).json({ error: 'No file uploaded' });
   }
-
-  // Upload the file buffer from memory to Cloudinary
-  cloudinary.uploader.upload_stream({
-    resource_type: 'raw', // Treat it as a raw file, not an image
-    public_id: `${topic}-${Date.now()}.pdf`
-  }, async (error, result) => {
-    if (error) {
-      console.error("Cloudinary upload error:", error);
-      return res.status(500).json({ message: "File upload failed" });
-    }
-
-    // File uploaded successfully, 'result.secure_url' is the public URL
-    // Ensure the PDF URL is HTTPS and points directly to the resource
-const pdfUrl = result.secure_url.replace(/^http:\/\//i, 'https://');
-
-    
-    try {
-      // Now, save this URL to our Firestore database
-      const docRef = db.collection('materials').doc(topic);
-      await docRef.set({
-        pdfUrl: pdfUrl,
-        fileName: file.originalname // Store original name
-      }, { merge: true }); // 'merge: true' updates the doc
-
-      res.json({
-        message: 'File uploaded successfully!',
-        pdfUrl: pdfUrl
-      });
-      
-    } catch (dbError) {
-      console.error("Firestore update error:", dbError);
-      return res.status(500).json({ message: "Database update failed" });
-    }
-  '}).end(file.buffer); // Send the file buffer to Cloudinary
+  try {
+    // Upload file buffer to Cloudinary
+    const result = await cloudinary.uploader.upload_stream(
+      { resource_type: 'raw', folder: 'uploads' },
+      (error, result) => {
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ url: result.secure_url });
+      }
+    );
+    result.end(req.file.buffer);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
-// --- 4. CATCH-ALL & START SERVER ---
+// ---- START SERVER ----
 
-app.get(/(.*)/, (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-// Use Render's port
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Gyankunj Backend running at http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
-
-
-0
