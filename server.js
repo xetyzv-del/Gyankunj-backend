@@ -46,6 +46,7 @@ cloudinary.config({
 
 // Initialize Firestore Database (only if admin was initialized)
 const db = admin.firestore ? admin.firestore() : null;
+const FieldValue = admin.firestore ? admin.firestore.FieldValue : null; // <-- ADD THIS LINE
 
 // Configure Multer to use memory storage (no disk)
 const upload = multer({ 
@@ -70,21 +71,32 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/api/study-material/:topic', async (req, res) => {
   if (!db) return res.status(500).json({ error: "Database not initialized." });
   
-  try {
-    const topic = req.params.topic;
-    const docRef = db.collection('materials').doc(topic);
-    const doc = await docRef.get();
-    
-    if (!doc.exists) {
-      return res.status(404).json({ error: "Topic not found" });
-    }
-    
-    res.json(doc.data());
-  } catch (error) {
-    console.error("Error fetching doc:", error);
-    res.status(500).json({ error: "Server error" });
-  }
-});
+try {
+  // This is the new logic to add to an array
+  const docRef = db.collection('materials').doc(topic);
+
+  // Create a new object for our array
+  const newPdfEntry = {
+      url: pdfUrl,
+      fileName: file.originalname,
+      uploadedAt: new Date().toISOString()
+  };
+
+  // Atomically add this new object to the 'uploads' array
+  // If 'uploads' doesn't exist, it will be created.
+  await docRef.update({
+      uploads: FieldValue.arrayUnion(newPdfEntry)
+  });
+
+  res.json({
+    message: 'File added to list successfully!',
+    pdfUrl: pdfUrl // We send back the URL just for confirmation
+  });
+
+} catch (dbError) {
+  console.error("Firestore update error:", dbError);
+  return res.status(500).json({ message: "Database update failed" });
+}
 
 // POST route (uploads to Cloudinary, then updates Firestore)
 app.post('/api/upload', upload.single('pdfFile'), (req, res) => {
@@ -108,7 +120,9 @@ app.post('/api/upload', upload.single('pdfFile'), (req, res) => {
     }
 
     // File uploaded successfully, 'result.secure_url' is the public URL
-    const pdfUrl = result.secure_url;
+    // Ensure the PDF URL is HTTPS and points directly to the resource
+const pdfUrl = result.secure_url.replace(/^http:\/\//i, 'https://');
+
     
     try {
       // Now, save this URL to our Firestore database
@@ -142,6 +156,7 @@ app.listen(PORT, () => {
   console.log(`Gyankunj Backend running at http://localhost:${PORT}`);
 });
 
+0
 0
 0
 0
