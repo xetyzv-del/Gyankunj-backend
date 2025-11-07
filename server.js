@@ -2,142 +2,144 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const multer = require('multer');
-const fs = require('fs'); // We need this
+const admin = require('firebase-admin'); // <-- NEW
+const cloudinary = require('cloudinary').v2; // <-- NEW
+const fs = require('fs'); // <-- NEW
+
 const app = express();
-const port = 3000;
 
-// --- RENDER-AWARE FILE PATHS ---
-// Check if we are running on Render (process.env.RENDER is set by Render)
-const isProduction = process.env.RENDER === 'true';
+// --- 1. INITIALIZE SERVICES ---
 
-// If on Render, save data to the persistent disk at '/data'. 
-// Otherwise, save it locally.
-const DB_PATH = isProduction ? '/data/db.json' : path.join(__dirname, 'db.json');
-const UPLOAD_PATH = isProduction ? '/data/uploads' : path.join(__dirname, 'public/uploads');
+// Base64-decode the service account key from the environment variable
+// This is the secure way to do it on Render
+const serviceAccountBase64 = process.env.FIREBASE_SERVICE_ACCOUNT_BASE64;
+let serviceAccount;
 
-// --- Ensure directories exist ---
-// Make sure our upload folder exists, wherever it is
-if (!fs.existsSync(UPLOAD_PATH)) {
-    fs.mkdirSync(UPLOAD_PATH, { recursive: true });
+if (serviceAccountBase64) {
+  // We are on Render (Production)
+  const decodedKey = Buffer.from(serviceAccountBase64, 'base64').toString('ascii');
+  serviceAccount = JSON.parse(decodedKey);
+} else {
+  // We are on Termux (Development)
+  // Check if the key file exists before trying to require it
+  if (fs.existsSync('./serviceAccountKey.json')) {
+    serviceAccount = require('./serviceAccountKey.json');
+  } else {
+    console.warn("WARNING: serviceAccountKey.json not found. Firebase Admin SDK not initialized for local dev.");
+  }
 }
 
-// --- Load/Save Database Functions (Modified) ---
-function loadDatabase() {
-    try {
-        // Make sure the database file exists before trying to read it
-        if (!fs.existsSync(DB_PATH)) {
-            // If it doesn't exist (like on first deploy), create it with defaults
-            console.log("No db.json found. Creating one with defaults.");
-            const defaultData = {
-                "ancient-history": { title: "Ancient History", description: "Default notes.", pdfUrl: null },
-                "modern-history": { title: "Modern History", description: "Default notes.", pdfUrl: null }
-            };
-            saveDatabase(defaultData);
-            return defaultData;
-        } else {
-            const data = fs.readFileSync(DB_PATH, 'utf8');
-            return JSON.parse(data);
-        }
-    } catch (err) {
-        console.error("Error reading database file:", err);
-        return {}; // Return empty object on error
-    }
+// Initialize Firebase Admin only if we have a service account
+if (serviceAccount) {
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount)
+  });
 }
 
-function saveDatabase(data) {
-    try {
-        fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2), 'utf8');
-    } catch (err) {
-        console.error("Error saving database file:", err);
-    }
-}
-
-// --- Middleware ---
-app.use(cors());
-// Serve the main app (index.html, etc.) from 'public'
-app.use(express.static(path.join(__dirname, 'public')));
-// --- NEW: Also serve uploaded files from our persistent disk ---
-// This tells Express: If a URL starts with /uploads, 
-// look for the file in the UPLOAD_PATH folder.
-app.use('/uploads', express.static(UPLOAD_PATH));
-
-// --- Load data into memory ---
-let studyMaterialData = loadDatabase();
-
-// --- Multer Configuration (Modified) ---
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, UPLOAD_PATH); // Use our new render-aware path
-    },
-    filename: (req, file, cb) => {
-        // Use a clean timestamp for the filename
-        const uniqueName = req.body.topic + '-' + Date.now() + '.pdf';
-        cb(null, uniqueName);
-    }
+// Initialize Cloudinary (using Render's environment variables)
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+  secure: true
 });
 
-const pdfFileFilter = (req, file, cb) => {
-    if (file.mimetype === 'application/pdf') {
-        cb(null, true);
-    } else {
-        cb(new Error('Only PDF files are allowed!'), false); 
-    }
-};
+// Initialize Firestore Database (only if admin was initialized)
+const db = admin.firestore ? admin.firestore() : null;
 
+// Configure Multer to use memory storage (no disk)
 const upload = multer({ 
-    storage: storage,
-    fileFilter: pdfFileFilter
-});
-
-// --- API ROUTES (Same as before) ---
-app.get('/api/study-material/:topic', (req, res) => {
-    const topic = req.params.topic;
-    const data = studyMaterialData[topic]; 
-    if (data) {
-        res.json(data);
+  storage: multer.memoryStorage(),
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype === 'application/pdf') {
+      cb(null, true);
     } else {
-        res.status(404).json({ error: "Topic not found" });
+      cb(new Error('Only PDF files are allowed!'), false);
     }
+  }
 });
 
-app.post('/api/upload', (req, res) => {
-    const uploadMiddleware = upload.single('pdfFile');
+// --- 2. MIDDLEWARE ---
+app.use(cors());
+app.use(express.static(path.join(__dirname, 'public')));
+// We no longer need a static '/uploads' folder, as files are in the cloud
+
+// --- 3. API ROUTES (REBUILT FOR FIRESTORE & CLOUDINARY) ---
+
+// GET route (reads from Firestore)
+app.get('/api/study-material/:topic', async (req, res) => {
+  if (!db) return res.status(500).json({ error: "Database not initialized." });
+  
+  try {
+    const topic = req.params.topic;
+    const docRef = db.collection('materials').doc(topic);
+    const doc = await docRef.get();
     
-    uploadMiddleware(req, res, (err) => {
-        if (err) {
-            return res.status(400).json({ message: err.message });
-        }
-        const topic = req.body.topic;
-        const file = req.file;
-        if (!file) {
-            return res.status(400).json({ message: 'No file uploaded.' });
-        }
-        if (studyMaterialData[topic]) {
-            // Update path to be a URL, not a folder path
-            studyMaterialData[topic].pdfUrl = `uploads/${file.filename}`;
-            saveDatabase(studyMaterialData); 
-            console.log(`Updated ${topic} with PDF: ${file.filename}`);
-            res.json({
-                message: 'File uploaded successfully!',
-                pdfUrl: `uploads/${file.filename}`
-            });
-        } else {
-            res.status(404).json({ message: 'Topic not found for upload.' });
-        }
-    });
+    if (!doc.exists) {
+      return res.status(404).json({ error: "Topic not found" });
+    }
+    
+    res.json(doc.data());
+  } catch (error) {
+    console.error("Error fetching doc:", error);
+    res.status(500).json({ error: "Server error" });
+  }
 });
 
-// --- Catch-all route for your HTML app ---
+// POST route (uploads to Cloudinary, then updates Firestore)
+app.post('/api/upload', upload.single('pdfFile'), (req, res) => {
+  if (!db) return res.status(500).json({ error: "Database not initialized." });
+  
+  const topic = req.body.topic;
+  const file = req.file;
+
+  if (!file) {
+    return res.status(400).json({ message: 'No file uploaded.' });
+  }
+
+  // Upload the file buffer from memory to Cloudinary
+  cloudinary.uploader.upload_stream({
+    resource_type: 'raw', // Treat it as a raw file, not an image
+    public_id: `${topic}-${Date.now()}`
+  }, async (error, result) => {
+    if (error) {
+      console.error("Cloudinary upload error:", error);
+      return res.status(500).json({ message: "File upload failed" });
+    }
+
+    // File uploaded successfully, 'result.secure_url' is the public URL
+    const pdfUrl = result.secure_url;
+    
+    try {
+      // Now, save this URL to our Firestore database
+      const docRef = db.collection('materials').doc(topic);
+      await docRef.set({
+        pdfUrl: pdfUrl,
+        fileName: file.originalname // Store original name
+      }, { merge: true }); // 'merge: true' updates the doc
+
+      res.json({
+        message: 'File uploaded successfully!',
+        pdfUrl: pdfUrl
+      });
+      
+    } catch (dbError) {
+      console.error("Firestore update error:", dbError);
+      return res.status(500).json({ message: "Database update failed" });
+    }
+  }).end(file.buffer); // Send the file buffer to Cloudinary
+});
+
+// --- 4. CATCH-ALL & START SERVER ---
+
 app.get(/(.*)/, (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// --- Start Server (Modified) ---
-// Render provides its own port. We must use it.
+// Use Render's port
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Gyankunj Backend running at http://localhost:${PORT}`);
-    console.log(`Database path: ${DB_PATH}`);
-    console.log(`Upload path: ${UPLOAD_PATH}`);
+  console.log(`Gyankunj Backend running at http://localhost:${PORT}`);
 });
 
+0
